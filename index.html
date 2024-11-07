@@ -8,37 +8,331 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #e0e0e0;
             max-width: 600px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f5f5f5;
+            background-color: #121212;
         }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 0.5em;
-            color: #000;
+        h1, h2 {
+            color: #ffffff;
         }
         em {
-            font-style: italic;
-            color: #666;
-            display: block;
-            margin-bottom: 1.5em;
+            color: #a0a0a0;
         }
         p {
             margin-bottom: 1em;
+        }
+        
+        .founders {
+            margin: 2em 0;
+            display: flex;
+            gap: 2em;
+            flex-wrap: wrap;
+        }
+        
+        .founder {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .founder h3 {
+            margin: 0.5em 0 0.2em;
+        }
+        
+        .founder p {
+            margin: 0.5em 0;
+            color: #b0b0b0;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+        
+        .cta-button {
+            position: relative;
+            display: inline-block;
+            padding: 12px 24px;
+            text-decoration: none;
+            color: #ffffff;
+            background: linear-gradient(45deg, #FF1493, #4B0082, #0000FF, #00FF00, #FFFF00, #FF7F00, #FF0000);
+            background-size: 200% 200%;
+            border-radius: 4px;
+            animation: gradient 10s ease infinite;
+            font-weight: 600;
+            border: none;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #FF1493, #4B0082, #0000FF, #00FF00, #FFFF00, #FF7F00, #FF0000);
+            background-size: 400% 400%;
+            z-index: -1;
+            animation: spinning-border 3s linear infinite;
+            border-radius: 6px;
+            opacity: 0.8;
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            background: #1a1a1a;
+            border-radius: 3px;
+            z-index: -1;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            transition: transform 0.2s ease;
+            color: #ffffff;
+        }
+
+        .cta-button:hover::before {
+            animation: spinning-border 1.5s linear infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes spinning-border {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 400% 50%;
+            }
+        }
+        
+        .section {
+            background: #1e1e1e;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            margin: 2em 0;
+        }
+        
+        .founder {
+            background: #252525;
+            padding: 1.5em;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            position: relative;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .founder:hover {
+            transform: translateY(-2px);
+            background: #2a2a2a;
+        }
+
+        .founder-link {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            text-decoration: none;
+        }
+
+        .founder h3 {
+            margin: 0.5em 0 0.2em;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+
+        .founder h3::after {
+            content: '↗';
+            color: #666;
+            font-size: 0.9em;
+            transition: color 0.2s ease;
+        }
+
+        .founder:hover h3::after {
+            color: #fff;
+        }
+
+        .founder h3 a {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+            .founder {
+                min-width: 100%;
+            }
+        }
+
+        .members {
+            display: grid;
+            gap: 2em;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .member {
+            background: #252525;
+            padding: 1.5em;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .member h3 {
+            margin: 0.5em 0 0.2em;
+            color: #ffffff;
+        }
+
+        .member ul {
+            list-style: none;
+            padding: 0;
+            margin: 1em 0;
+        }
+
+        .member li {
+            margin: 0.8em 0;
+            color: #b0b0b0;
+        }
+
+        @media (max-width: 600px) {
+            .members {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .section.contact {
+            background: #1e1e1e;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            margin: 2em 0;
+        }
+
+        .contact-link {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            text-decoration: none;
+        }
+
+        .contact-link h3 {
+            margin: 0.5em 0 0.2em;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+
+        .contact-link h3::after {
+            content: '↗';
+            color: #666;
+            font-size: 0.9em;
+            transition: color 0.2s ease;
+        }
+
+        .contact-link:hover h3::after {
+            color: #fff;
+        }
+
+        .contact-link h3 a {
+            display: none;
+        }
+
+        /* Email link styling */
+        .contact a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .contact a:hover {
+            color: #ffffff;
         }
     </style>
 </head>
 <body>
     <h1>justbuild.ing</h1>
     <em>"talk is cheap, show me the code" - Linus Torvalds</em>
-    <p>Top builders elevate each other.</p>
-    <p>This community is dedicated to gathering the best builders in Utah to provide the sharpest edge of top programming talent. </p>
-    <p>We aim to continue to sharpen this edge by building a network that hosts hackathons and helps start companies.</p>
-    <p>No selling, no grifting, no yapping. </p>
-    <p>just building.</p>
-    <p>Our first hackathon will be in early November. </p>
-    <p><a href="mailto:hello@maxforsey.com">Contact us</a> if you are interested in becoming a part of this.</p>
+
+    <!-- Mission/About Section -->
+    <div class="section">
+        <p>Top builders elevate each other.</p>
+        <p>This community is dedicated to gathering the best builders in Utah to provide the sharpest edge of top programming talent.</p>
+        <p>We aim to continue to sharpen this edge by building a network that hosts hackathons and helps start companies.</p>
+    </div>
+
+    <!-- Current Event/CTA Section -->
+    <div class="section">
+        <h2>Join Our Next Event</h2>
+        <p>Join Utah's top builders for our first hackathon this November.</p>
+        <p>No selling, no grifting, no yapping. just building.</p>
+        <a href="https://lu.ma/justbuilding-nov" class="cta-button">Apply to Join →</a>
+    </div>
+
+    <!-- Founders Section -->
+    <div class="section">
+        <h2>Founded By</h2>
+        <div class="founders">
+            <div class="founder">
+                <a href="https://www.linkedin.com/in/max-forsey/" target="_blank" class="founder-link"></a>
+                <h3>Max Forsey</h3>
+                <p>• AI Research Assistant at BYU's Perception Control and Cognition Lab</p>
+                <p>• Former CTO & Co-founder of Sameday(YC W23)</p>
+            </div>
+            <div class="founder">
+                <a href="https://www.linkedin.com/in/jacob-c-wright/" target="_blank" class="founder-link"></a>
+                <h3>Jacob Wright</h3>
+                <p>• Engineer at RunPod</p>
+                <p>• Founded Sister Glow Up (Scaled to $100k+ ARR & 25k+ users in 3 months)</p>
+                <p>• Former CTO & Cofounder at Proxy (HF0 S23)</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Members Section -->
+    <div class="section">
+        <h2>Members</h2>
+        <p>A curated community of Utah's top builders:</p>
+        <div class="members">
+            <div class="member">
+                <h3>Early Members include:</h3>
+                <ul>
+                    <li>Lead Researchers</li>
+                    <li>YC Founders</li>
+                    <li>Hackers</li>
+                </ul>
+            </div>
+            <div class="member">
+                <p>Looking for exceptional builders who:</p>
+                <ul>
+                    <li>Have shipped significant projects</li>
+                    <li>Are actively building</li>
+                    <li>Value doing over talking</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="section contact">
+        <h2>Get in Touch</h2>
+        <p>Questions about joining? <a href="mailto:hello@maxforsey.com">Reach out to us here ↗</a></p>
+    </div>
 </body>
 </html>
