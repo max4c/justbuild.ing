@@ -55,7 +55,11 @@
             padding: 12px 24px;
             text-decoration: none;
             color: #ffffff;
-            background: linear-gradient(45deg, #FF1493, #4B0082, #0000FF, #00FF00, #FFFF00, #FF7F00, #FF0000);
+            background: linear-gradient(45deg, 
+                #40E0D0, /* turquoise */
+                #FFB347, /* warm orange */
+                #FF6B6B  /* soft coral red */
+            );
             background-size: 200% 200%;
             border-radius: 4px;
             animation: gradient 10s ease infinite;
@@ -63,7 +67,7 @@
             border: none;
             overflow: hidden;
             letter-spacing: 0.5px;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            text-shadow: none;
         }
 
         .cta-button::before {
@@ -73,12 +77,16 @@
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: linear-gradient(45deg, #FF1493, #4B0082, #0000FF, #00FF00, #FFFF00, #FF7F00, #FF0000);
+            background: linear-gradient(45deg, 
+                #40E0D0, /* turquoise */
+                #FFB347, /* warm orange */
+                #FF6B6B  /* soft coral red */
+            );
             background-size: 400% 400%;
             z-index: -1;
             animation: spinning-border 3s linear infinite;
             border-radius: 6px;
-            opacity: 0.8;
+            opacity: 0.4;
         }
 
         .cta-button::after {
@@ -88,7 +96,7 @@
             background: #1a1a1a;
             border-radius: 3px;
             z-index: -1;
-            box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+            box-shadow: none;
         }
 
         .cta-button:hover {
