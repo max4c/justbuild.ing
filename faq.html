@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - justbuild.ing</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
+    <style>
+        /* Include existing styles from index.html */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #121212;
+        }
+
+        h1, h2 {
+            color: #ffffff;
+        }
+
+        .logo-text {
+            font-family: 'ZCOOL QingKe HuangYou', sans-serif;
+            font-size: 48px;
+            color: white;
+            margin: 20px 0;
+            display: block;
+            text-decoration: none;
+        }
+
+        .section {
+            background: #1e1e1e;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            margin: 2em 0;
+        }
+
+        /* FAQ specific styles */
+        .faq-item {
+            background: #252525;
+            margin: 1em 0;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question {
+            padding: 1.5em;
+            margin: 0;
+            cursor: pointer;
+            position: relative;
+            font-weight: 600;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 1.5em;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 1.5em 1.5em;
+        }
+
+        .schedule {
+            margin: 1em 0;
+        }
+
+        .schedule-day {
+            margin: 1.5em 0;
+        }
+
+        .schedule-item {
+            display: flex;
+            margin: 0.5em 0;
+            padding: 0.5em 0;
+        }
+
+        .schedule-time {
+            min-width: 150px;
+            color: #b0b0b0;
+        }
+
+        .schedule-event {
+            flex: 1;
+        }
+
+        .ai-tools {
+            list-style: none;
+            padding: 0;
+        }
+
+        .ai-tools li {
+            margin: 0.5em 0;
+        }
+
+        .ai-tools a {
+            color: #40E0D0;
+            text-decoration: none;
+        }
+
+        .ai-tools a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="logo-text">{ jb }</a>
+
+    <div class="section">
+        <h1>Hackathon FAQ</h1>
+        
+        <div class="faq-item">
+            <div class="faq-question">How do teams work?</div>
+            <div class="faq-answer">
+                <p>No builder has to join a team. Team sizes are limited to 4 people. There will be time for team formations at the beginning of the hackathon.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What are the building access hours?</div>
+            <div class="faq-answer">
+                <p>The building will be open for the entire event but with a caveat: a co-host will have to let you in. With that in mind, plan accordingly.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Is there a theme for the hackathon?</div>
+            <div class="faq-answer">
+                <p>There is no theme for the event just building 😉</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What is the judging criteria?</div>
+            <div class="faq-answer">
+                <ul>
+                    <li>Technical skill</li>
+                    <li>User experience</li>
+                    <li>Project completion</li>
+                    <li>Innovation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What are the rules?</div>
+            <div class="faq-answer">
+                <p>You can build upon existing ideas, but all code must be written during the hackathon.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">Can I use AI?</div>
+            <div class="faq-answer">
+                <p>YES! Aside from the general foundation models, here are some fun AI tools to use:</p>
+                <ul class="ai-tools">
+                    <li><a href="https://bolt.new/" target="_blank">bolt.new</a></li>
+                    <li><a href="https://v0.dev/" target="_blank">v0.dev</a></li>
+                    <li><a href="https://www.recraft.ai/" target="_blank">recraft.ai</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What are the prizes?</div>
+            <div class="faq-answer">
+                <p>To be announced 🤑</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">How do submissions work?</div>
+            <div class="faq-answer">
+                <ul>
+                    <li>Projects will be live-demoed. You will have about 5 minutes to present</li>
+                    <li>Live demos start at 1 PM</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What is the Code of Conduct?</div>
+            <div class="faq-answer">
+                <p>justbuild.ing maintains the right to remove anyone from the hackathon. Grounds for removal include but are not limited to sabotaging another team's code, displays of verbal or non-verbal aggression, etc.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What about food?</div>
+            <div class="faq-answer">
+                <p>Snacks will be provided on Friday night. Lunch will be provided on Saturday afternoon. Breakfast may be there for those early in the morning.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">What is the schedule?</div>
+            <div class="faq-answer">
+                <div class="schedule">
+                    <div class="schedule-day">
+                        <h3>Friday</h3>
+                        <div class="schedule-item">
+                            <div class="schedule-time">6:00-7:00 PM</div>
+                            <div class="schedule-event">Introductions & Remi Lightning Talk & Team Formation</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">7:00 PM onwards</div>
+                            <div class="schedule-event">Building</div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-day">
+                        <h3>Saturday</h3>
+                        <div class="schedule-item">
+                            <div class="schedule-time">Morning</div>
+                            <div class="schedule-event">Building</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">12:00-1:00 PM</div>
+                            <div class="schedule-event">Lunch + Cartwheel Lightning Talk</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">1:00-2:00 PM</div>
+                            <div class="schedule-event">Live Demos</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">2:00-2:30 PM</div>
+                            <div class="schedule-event">Judging</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">2:30-2:45 PM</div>
+                            <div class="schedule-event">Closing Thoughts and Announce winners</div>
+                        </div>
+                        <div class="schedule-item">
+                            <div class="schedule-time">2:45-3:00 PM</div>
+                            <div class="schedule-event">Wrap Up</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html> 
