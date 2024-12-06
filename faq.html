@@ -73,13 +73,15 @@
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
+            transition: all 0.3s ease;
             padding: 0 1.5em;
+            opacity: 0;
         }
 
         .faq-item.active .faq-answer {
-            max-height: 500px;
+            max-height: none;
             padding: 0 1.5em 1.5em;
+            opacity: 1;
         }
 
         .schedule {
