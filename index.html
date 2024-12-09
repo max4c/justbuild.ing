@@ -312,6 +312,36 @@
             display: block;
             text-decoration: none;
         }
+
+        /* Add social links styling */
+        .social-links {
+            display: flex;
+            gap: 1em;
+            margin: 1em 0;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5em;
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 0.5em 1em;
+            background: #252525;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        
+        .social-link:hover {
+            background: #2a2a2a;
+            transform: translateY(-2px);
+        }
+        
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
     </style>
 </head>
 <body>
@@ -322,15 +352,26 @@
     <div class="section">
         <p>Top builders elevate each other.</p>
         <p>This community is dedicated to gathering the best builders to provide the sharpest edge of top programming talent.</p>
-        <p>Based in Utah County, we aim to continue to sharpen this edge by building a network that hosts hackathons and helps start companies.</p>
+        <p>Based in Utah County, we aim to continue to sharpen this edge by building a network that helps start companies.</p>
     </div>
 
-    <!-- Current Event/CTA Section -->
+    <!-- Social Links Section -->
     <div class="section">
-        <h2>Join Our Kickoff Hackathon</h2>
-        <p>Be among the first builders to join this elite community as we launch our first-ever hackathon in Utah County.</p>
-        <p>No selling, no grifting, no yapping. just building.</p>
-        <a href="https://lu.ma/4ol8b572" class="cta-button">Apply to Join ↗</a>
+        <h2>Connect With Us</h2>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/company/justbuild-ing/" target="_blank" class="social-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                </svg>
+                LinkedIn
+            </a>
+            <a href="https://x.com/justbuildHQ" target="_blank" class="social-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+                X (Twitter)
+            </a>
+        </div>
     </div>
 
     <!-- Founders Section -->
@@ -353,34 +394,10 @@
         </div>
     </div>
 
-    <!-- Members Section -->
-    <div class="section">
-        <h2>Members</h2>
-        <p>A curated community of exceptional builders:</p>
-        <div class="members">
-            <div class="member">
-                <p>Early Members include:</p>
-                <ul>
-                    <li>Lead Researchers</li>
-                    <li>YC Founders</li>
-                    <li>Hackers</li>
-                </ul>
-            </div>
-            <div class="member">
-                <p>Looking for exceptional builders who:</p>
-                <ul>
-                    <li>Have shipped significant projects</li>
-                    <li>Are actively building</li>
-                    <li>Value doing over talking</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
     <!-- Contact Section -->
     <div class="section contact">
         <h2>Get in Touch</h2>
-        <p>Questions about joining? <a href="mailto:hello@maxforsey.com">Reach out to us here ↗</a></p>
+        <p>Questions about joining? <a href="mailto:hello@justbuild.ing">Reach out to us here ↗</a></p>
     </div>
 </body>
 </html>
