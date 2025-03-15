@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap');
+
+body {
+  @apply bg-dark text-gray-100;
+}
+
+.cta-button {
+  @apply relative inline-block px-6 py-3 text-white font-semibold border-0 rounded overflow-hidden tracking-wider bg-gradient-to-r from-primary via-primary-warm to-primary-coral bg-[length:200%_200%] transition-transform hover:-translate-y-0.5;
+  animation: gradient 10s ease infinite;
+}
+
+.cta-button::before {
+  content: '';
+  @apply absolute -inset-0.5 bg-gradient-to-r from-primary via-primary-warm to-primary-coral bg-[length:400%_400%] -z-10 rounded-lg opacity-40;
+  animation: spinning-border 3s linear infinite;
+}
+
+.cta-button::after {
+  content: '';
+  @apply absolute inset-0.5 bg-dark-lighter rounded -z-[5];
+}
+
+.cta-button:hover::before {
+  animation: spinning-border 1.5s linear infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes spinning-border {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 400% 50%; }
+}
+
+.prose {
+  @apply max-w-none text-gray-100;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  @apply text-white;
+}
+
+.prose a {
+  @apply text-primary hover:text-primary-warm;
+}
+
+.prose strong {
+  @apply text-white;
+}
