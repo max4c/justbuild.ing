@@ -6,9 +6,9 @@ export default function Layout({ children, title = 'justbuild.ing' }) {
   return (
     <>
       <Head>
-        <title>{title}</title>
-        <meta name="description" content="A community for top builders to elevate each other" />
+        {/* Use a key to ensure this title is overwritten by more specific page titles */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="A community for top builders to elevate each other" />
       </Head>
       <div className="flex flex-col min-h-screen">
         <Navbar />

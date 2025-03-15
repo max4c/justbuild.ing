@@ -5,9 +5,11 @@ import Image from 'next/image'
 import { format } from 'date-fns'
 import { getAllAnnouncements, getContentBySlug } from '../../lib/mdx'
 import SectionCard from '../../components/SectionCard'
+import { useState } from 'react'
 
 export default function AnnouncementPost({ post }) {
   const router = useRouter()
+  const [imageError, setImageError] = useState(false)
 
   if (router.isFallback) {
     return (
@@ -32,7 +34,7 @@ export default function AnnouncementPost({ post }) {
   return (
     <>
       <Head>
-        <title>{post.title} | justbuild.ing</title>
+        <title key="page-title">{post.title} | justbuild.ing</title>
         <meta name="description" content={post.excerpt} />
       </Head>
       
@@ -51,7 +53,7 @@ export default function AnnouncementPost({ post }) {
         </div>
         
         <SectionCard>
-          {post.coverImage && (
+          {post.coverImage && !imageError && (
             <div className="relative h-64 md:h-80 -mx-6 md:-mx-8 -mt-6 md:-mt-8 mb-6 rounded-t-lg overflow-hidden">
               <Image
                 src={post.coverImage}
@@ -59,6 +61,7 @@ export default function AnnouncementPost({ post }) {
                 fill
                 style={{ objectFit: 'cover' }}
                 priority
+                onError={() => setImageError(true)}
               />
             </div>
           )}
