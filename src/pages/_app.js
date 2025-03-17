@@ -1,7 +1,6 @@
 import { MDXProvider } from '@mdx-js/react'
 import Layout from '../components/Layout'
 import '../styles/globals.css'
-import Head from 'next/head'
 
 // Custom components for MDX
 const components = {
@@ -15,13 +14,19 @@ const components = {
 }
 
 function MyApp({ Component, pageProps }) {
+  const getTitle = () => {
+    // Extract page title from pageProps if available
+    if (pageProps.post && pageProps.post.title) {
+      return `${pageProps.post.title} | justbuild.ing`;
+    }
+    
+    // Fall back to default title
+    return undefined;
+  }
+  
   return (
     <MDXProvider components={components}>
-      <Head>
-        {/* Use key to ensure this title is replaced by more specific titles */}
-        <title key="default-title">justbuild.ing</title>
-      </Head>
-      <Layout>
+      <Layout title={getTitle()}>
         <Component {...pageProps} />
       </Layout>
     </MDXProvider>

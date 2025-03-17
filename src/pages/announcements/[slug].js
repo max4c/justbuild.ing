@@ -5,11 +5,9 @@ import Image from 'next/image'
 import { format } from 'date-fns'
 import { getAllAnnouncements, getContentBySlug } from '../../lib/mdx'
 import SectionCard from '../../components/SectionCard'
-import { useState } from 'react'
 
 export default function AnnouncementPost({ post }) {
   const router = useRouter()
-  const [imageError, setImageError] = useState(false)
 
   if (router.isFallback) {
     return (
@@ -34,7 +32,7 @@ export default function AnnouncementPost({ post }) {
   return (
     <>
       <Head>
-        <title key="page-title">{post.title} | justbuild.ing</title>
+        <title key="title">{`${post.title} | justbuild.ing`}</title>
         <meta name="description" content={post.excerpt} />
       </Head>
       
@@ -53,15 +51,14 @@ export default function AnnouncementPost({ post }) {
         </div>
         
         <SectionCard>
-          {post.coverImage && !imageError && (
+          {post.coverImage && (
             <div className="relative h-64 md:h-80 -mx-6 md:-mx-8 -mt-6 md:-mt-8 mb-6 rounded-t-lg overflow-hidden">
               <Image
                 src={post.coverImage}
                 alt={post.title}
                 fill
                 style={{ objectFit: 'cover' }}
-                priority
-                onError={() => setImageError(true)}
+                priority={true}
               />
             </div>
           )}
@@ -125,6 +122,26 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const post = await getContentBySlug(params.slug, 'announcements')
+  
+  // Return not found if no post was found
+  if (!post) {
+    return {
+      notFound: true
+    }
+  }
+  
+  // Validate image URL exists
+  const imageExists = post.coverImage ? 
+    await fetch(post.coverImage, { method: 'HEAD' })
+      .then(res => res.ok)
+      .catch(() => false) : 
+    false;
+  
+  // If image doesn't exist, use a fallback or remove it
+  if (post.coverImage && !imageExists) {
+    post.coverImage = "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=1600&auto=format&fit=crop"; // Fallback image
+  }
+  
   return {
     props: { post },
     // Revalidate every hour
