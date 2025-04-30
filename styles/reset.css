@@ -1,0 +1,22 @@
+*,
+*::before,
+*::after { box-sizing:border-box; margin:0; padding:0; }
+body { line-height:1.4; max-width:740px; margin:2rem auto; padding:0 1rem; }
+ul { list-style:disc; margin-left:1.25rem; }
+ol { list-style:decimal; margin-left: 1.25rem; }
+header,footer { margin-bottom:1.5rem; }
+nav a { text-decoration:underline; } 
+
+#faq p {
+    margin-bottom: 0.75rem; /* Space below each paragraph in FAQ */
+}
+
+#faq p + p {
+    margin-top: -0.25rem; /* Reduce space slightly between Q and A */
+    margin-bottom: 1.5rem; /* Add more space after the answer */
+}
+
+/* Add margin below section headings */
+h2 {
+    margin-bottom: 1rem;
+} 

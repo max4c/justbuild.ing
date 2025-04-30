@@ -3,401 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>justbuild.ing</title>
+    <title>JustBuild</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
-            color: #e0e0e0;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #121212;
-        }
-        h1, h2 {
-            color: #ffffff;
-        }
-        em {
-            color: #a0a0a0;
-        }
-        p {
-            margin-bottom: 1em;
-        }
-        
-        .founders {
-            margin: 2em 0;
-            display: flex;
-            gap: 2em;
-            flex-wrap: wrap;
-        }
-        
-        .founder {
-            flex: 1;
-            min-width: 250px;
-        }
-        
-        .founder h3 {
-            margin: 0.5em 0 0.2em;
-        }
-        
-        .founder p {
-            margin: 0.5em 0;
-            color: #b0b0b0;
-            font-size: 0.9em;
-            line-height: 1.4;
-        }
-        
-        .cta-button {
-            position: relative;
-            display: inline-block;
-            padding: 12px 24px;
-            text-decoration: none;
-            color: #ffffff;
-            background: linear-gradient(45deg, 
-                #40E0D0, /* turquoise */
-                #FFB347, /* warm orange */
-                #FF6B6B  /* soft coral red */
-            );
-            background-size: 200% 200%;
-            border-radius: 4px;
-            animation: gradient 10s ease infinite;
-            font-weight: 600;
-            border: none;
-            overflow: hidden;
-            letter-spacing: 0.5px;
-            text-shadow: none;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, 
-                #40E0D0, /* turquoise */
-                #FFB347, /* warm orange */
-                #FF6B6B  /* soft coral red */
-            );
-            background-size: 400% 400%;
-            z-index: -1;
-            animation: spinning-border 3s linear infinite;
-            border-radius: 6px;
-            opacity: 0.4;
-        }
-
-        .cta-button::after {
-            content: '';
-            position: absolute;
-            inset: 2px;
-            background: #1a1a1a;
-            border-radius: 3px;
-            z-index: -1;
-            box-shadow: none;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            transition: transform 0.2s ease;
-            color: #ffffff;
-        }
-
-        .cta-button:hover::before {
-            animation: spinning-border 1.5s linear infinite;
-        }
-
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        @keyframes spinning-border {
-            0% {
-                background-position: 0% 50%;
-            }
-            100% {
-                background-position: 400% 50%;
-            }
-        }
-        
-        .section {
-            background: #1e1e1e;
-            padding: 2em;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            margin: 2em 0;
-        }
-        
-        .founder {
-            background: #252525;
-            padding: 1.5em;
-            border-radius: 6px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-            position: relative;
-            transition: transform 0.2s ease, background-color 0.2s ease;
-        }
-
-        .founder:hover {
-            transform: translateY(-2px);
-            background: #2a2a2a;
-        }
-
-        .founder-link {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            text-decoration: none;
-        }
-
-        .founder h3 {
-            margin: 0.5em 0 0.2em;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            gap: 0.5em;
-        }
-
-        .founder h3::after {
-            content: '↗';
-            color: #666;
-            font-size: 0.9em;
-            transition: color 0.2s ease;
-        }
-
-        .founder:hover h3::after {
-            color: #fff;
-        }
-
-        .founder h3 a {
-            display: none;
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 15px;
-            }
-            .founder {
-                min-width: 100%;
-            }
-        }
-
-        .members {
-            display: grid;
-            gap: 2em;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        }
-
-        .member {
-            background: #252525;
-            padding: 1.5em;
-            border-radius: 6px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-        }
-
-        .member h3 {
-            margin: 0.5em 0 0.2em;
-            color: #ffffff;
-        }
-
-        .member ul {
-            list-style: none;
-            padding: 0;
-            margin: 1em 0;
-        }
-
-        .member li {
-            margin: 0.8em 0;
-            color: #b0b0b0;
-        }
-
-        @media (max-width: 600px) {
-            .members {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .section.contact {
-            background: #1e1e1e;
-            padding: 2em;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            margin: 2em 0;
-        }
-
-        .contact-link {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            text-decoration: none;
-        }
-
-        .contact-link h3 {
-            margin: 0.5em 0 0.2em;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            gap: 0.5em;
-        }
-
-        .contact-link h3::after {
-            content: '↗';
-            color: #666;
-            font-size: 0.9em;
-            transition: color 0.2s ease;
-        }
-
-        .contact-link:hover h3::after {
-            color: #fff;
-        }
-
-        .contact-link h3 a {
-            display: none;
-        }
-
-        /* Email link styling */
-        .contact a {
-            color: #e0e0e0;
-            text-decoration: underline;
-            transition: color 0.2s ease;
-        }
-
-        .contact a:hover {
-            color: #ffffff;
-        }
-
-        .event-benefits {
-            margin: 1.5em 0;
-        }
-        
-        .event-benefits ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .event-benefits li {
-            color: #b0b0b0;
-            margin: 0.8em 0;
-            padding-left: 1.5em;
-            position: relative;
-        }
-        
-        .event-benefits li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: #666;
-        }
-
-        svg {
-            margin: 20px 0;
-            display: block;
-        }
-
-        .logo-text {
-            font-family: 'ZCOOL QingKe HuangYou', sans-serif;
-            font-size: 48px;
-            color: white;
-            margin: 20px 0;
-            display: block;
-            text-decoration: none;
-        }
-
-        /* Add social links styling */
-        .social-links {
-            display: flex;
-            gap: 1em;
-            margin: 1em 0;
-        }
-        
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5em;
-            color: #e0e0e0;
-            text-decoration: none;
-            padding: 0.5em 1em;
-            background: #252525;
-            border-radius: 4px;
-            transition: all 0.2s ease;
-        }
-        
-        .social-link:hover {
-            background: #2a2a2a;
-            transform: translateY(-2px);
-        }
-        
-        .social-link svg {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
-        }
-    </style>
+    <link rel="stylesheet" href="styles/reset.css">
 </head>
 <body>
-    <div class="logo-text">{ jb }</div>
-    <em>"talk is cheap, show me the code" - Linus Torvalds</em>
+    <header>
+        <img src="assets/{jb}.png" alt="Just Build logo" width="150">
+    </header>
 
-    <!-- Mission/About Section -->
-    <div class="section">
-        <p>Top builders elevate each other.</p>
-        <p>This community is dedicated to gathering the best builders to provide the sharpest edge of top programming talent.</p>
-        <p>Based in Utah County, we aim to continue to sharpen this edge by building a network that helps start companies.</p>
+    <div class="social-links" style="margin-bottom: 1.5rem;">
+        <a href="https://x.com/justbuildHQ" target="_blank" style="margin-right: 1em;">X (Twitter)</a>
+        <a href="https://www.linkedin.com/company/justbuild-ing/" target="_blank" style="margin-right: 1em;">LinkedIn</a>
+        <a href="https://tinyurl.com/jb-slackinvite" target="_blank" style="margin-right: 1em;">Slack Invite</a>
+        <a href="https://lu.ma/justbuild" target="_blank" style="margin-right: 1em;">Event Calendar</a>
     </div>
 
-    <!-- Social Links Section -->
-    <div class="section">
-        <h2>Connect With Us</h2>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/company/justbuild-ing/" target="_blank" class="social-link">
-                <svg viewBox="0 0 24 24">
-                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
-                </svg>
-                LinkedIn
-            </a>
-            <a href="https://x.com/justbuildHQ" target="_blank" class="social-link">
-                <svg viewBox="0 0 24 24">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-                X (Twitter)
-            </a>
+    <main>
+        <h2>JustBuild — events for builders by builders</h2>
+        <ul>
+            <li>Top builders elevate each other</li>
+            <li>Based in Utah County</li>
+            <li>Monthly hackathons with thousands of dollars in prizes</li>
+            <li>Weekly coworking sessions</li>
+        </ul>
+    </main>
+    <hr style="margin: 2rem 0;">
+
+    <section id="upcoming-event" style="margin-bottom: 2rem;">
+        <h2>Upcoming Event</h2>
+        <p>Announcing the name of this soon :) </p>
+        <ul>
+            <li>Date: May 3rd - May 31st</li>
+            <li>Sponsors: <a href="https://stackblitz.com" target="_blank">StackBlitz</a>, <a href="https://www.runpod.io" target="_blank">RunPod</a>, <a href="https://www.contrary.com" target="_blank">Contrary</a></li>
+            <li><a href="https://lu.ma/zuh8goyx" target="_blank">Sign up here</a></li>
+        </ul>
+    </section>
+    <hr style="margin: 2rem 0;">
+
+    <section id="past-events">
+        <h2>Past Events</h2>
+
+        <div class="event" style="margin-bottom: 1.5rem;">
+            <p>Manus Meetup Provo</p>
+            <ul>
+                <li>Sponsor: <a href="https://manus.im/app" target="_blank">Manus AI</a>, <a href="https://www.contrary.com" target="_blank">Contrary</a></li>
+                <li>Attendees: 78</li>
+                <li>Prizes: $3000</li>
+                <li>Date: May 29th 2025</li>
+                <li>Winners:
+                    <ul>
+                        <li>1st: Ben Fife and Russel Fife(Project TBD)</li>
+                        <li>2nd: Jens Shumway (Stock Analyzer Dashboard)</li>
+                        <li>3rd: Michael Davis (Project TBD)</li>
+                    </ul>
+                </li>
+                <li>Judges: <a href="https://x.com/parker_lyman" target="_blank">Parker Lyman</a>, <a href="https://x.com/jehovahscript" target="_blank">Jacob Wright</a>, <a href="https://x.com/max_4c" target="_blank">Max Forsey</a></li>
+            </ul>
         </div>
-    </div>
 
-    <!-- Founders Section -->
-    <div class="section">
-        <h2>Founded By</h2>
-        <div class="founders">
-            <div class="founder">
-                <a href="https://www.linkedin.com/in/max-forsey/" target="_blank" class="founder-link"></a>
-                <h3>Max Forsey</h3>
-                <p>• AI Research Assistant at BYU's Perception Control and Cognition Lab</p>
-                <p>• Former CTO & Co-founder of Sameday(YC W23)</p>
-            </div>
-            <div class="founder">
-                <a href="https://www.linkedin.com/in/jacob-c-wright/" target="_blank" class="founder-link"></a>
-                <h3>Jacob Wright</h3>
-                <p>• Engineer at RunPod</p>
-                <p>• Founded Sister Glow Up (Scaled to $100k+ ARR & 25k+ users in 3 months)</p>
-                <p>• Former CTO & Cofounder at Proxy (HF0 S23)</p>
-            </div>
+        <div class="event" style="margin-bottom: 1.5rem;">
+            <p>Multi-Modal AI Hackathon</p>
+            <ul>
+                <li>Sponsors: <a href="https://www.cerebras.ai" target="_blank">Cerebras</a>, <a href="https://www.gosameday.com" target="_blank">Sameday</a></li>
+                <li>Attendees: 44</li>
+                <li>Prizes: $1000</li>
+                <li>Date: March 8th 2025</li>
+                <li>Winners:
+                    <ul>
+                        <li>1st: Tristan Rhodes & Team OmniVision (Real-time video recognition)</li>
+                        <li>2nd: Matt Wood (RealReal - LLM workflow builder)</li>
+                        <li>3rd (Tie): Jack Saller (Imagin - Music generation)</li>
+                        <li>3rd (Tie): Jeffrey Olmo (Spotify playlist generation from image)</li>
+                    </ul>
+                </li>
+                <li>Judges: <a href="https://x.com/hi_im_dev_" target="_blank">Isaac Tai</a>, <a href="https://www.linkedin.com/in/khryniewicz/" target="_blank">Kamil Hryniewicz</a>, <a href="https://www.linkedin.com/in/brightlightkim/" target="_blank">Taeyang Kim</a>, <a href="https://x.com/max_4c" target="_blank">Max Forsey</a>, <a href="https://x.com/jehovahscript" target="_blank">Jacob Wright</a></li>
+            </ul>
         </div>
-    </div>
 
-    <!-- Contact Section -->
-    <div class="section contact">
-        <h2>Get in Touch</h2>
-        <p>Questions about joining? <a href="mailto:hello@justbuild.ing">Reach out to us here ↗</a></p>
-    </div>
+        <div class="event" style="margin-bottom: 1.5rem;">
+            <p>UT Tech Week's Shortest Hackathon</p>
+            <ul>
+                <li>Sponsors: <a href="https://www.buster.so" target="_blank">Buster</a>, <a href="https://www.remihq.com" target="_blank">Remi</a></li>
+                <li>Attendees: 65</li>
+                <li>Prizes: $3000 + $1000 in GPU credits</li>
+                <li>Date: Jauary 29th 2025</li>
+                <li>Winners:
+                    <ul>
+                        <li>1st: (TBD)</li>
+                        <li>2nd: (TBD)</li>
+                        <li>3rd: (TBD)</li>
+                    </ul>
+                </li>
+                <li>Judges: <a href="https://x.com/cblakerouse" target="_blank">Blake Rouse</a>, <a href="https://www.linkedin.com/in/dallinbentley/" target="_blank">Dallin Bentley</a>, <a href="https://x.com/jehovahscript" target="_blank">Jacob Wright</a>, <a href="https://x.com/max_4c" target="_blank">Max Forsey</a></li>
+            </ul>
+        </div>
+
+        <div class="event" style="margin-bottom: 1.5rem;">
+            <p>JustBuild Kickoff Hackathon</p>
+            <ul>
+                <li>Sponsor: <a href="https://www.remihq.com" target="_blank">Remi</a></li>
+                <li>Attendees: 39</li>
+                <li>Prizes: $3000</li>
+                <li>Date: December 6th 2024</li>
+                <li>Winners:
+                    <ul>
+                        <li>1st: Taeyang Kim (Project TBD)</li>
+                        <li>2nd: Chandler Ward (Project TBD)</li>
+                        <li>3rd: (TBD)</li>
+                    </ul>
+                </li>
+                <li>Judges: <a href="https://www.linkedin.com/in/lincoln-bergeson/" target="_blank">Lincoln Bergeson</a>, <a href="https://www.linkedin.com/in/brantchoate/" target="_blank">Brant Choate</a>, <a href="https://x.com/andrew_n_carr" target="_blank">Andrew Carr</a>, <a href="https://x.com/jehovahscript" target="_blank">Jacob Wright</a>, <a href="https://x.com/max_4c" target="_blank">Max Forsey</a></li>
+            </ul>
+        </div>
+
+    </section>
+
+    <section id="faq" style="margin-top: 2rem;">
+        <p><strong>Can anyone join?</strong></p>
+        <p>Yes – no credentials required. We welcome all passionate builders.</p>
+
+        <p><strong>Who is behind this?</strong></p>
+        <p>JustBuild was founded and is run by <a href="https://www.maxforsey.com">Max Forsey</a> and <a href="https://x.com/jehovahscript">Jacob Wright</a>.</p>
+
+        <p><strong>How are winners selected for hackathons?</strong></p>
+        <p>Criteria differ for each hackathon, so please check the specific event page for details. In general, we value innovation, technical ability, and creativity. A great demo goes a long way!</p>
+
+        <p><strong>Where can I learn about coworking sessions?</strong></p>
+        <p>Our regular coworking sessions are called saturdays@byu. Check the <a href="https://lu.ma/justbuild" target="_blank">Event Calendar</a> for the schedule and location details.</p>
+
+        <p><strong>Do I need a company to apply/participate?</strong></p>
+        <p>No, you do not need a company to join the community or participate in events.</p>
+
+        <p><strong>I love this idea and I want to help! Can I provide additional funding, sponsorship, a venue, or mentorship?</strong></p>
+        <p>Yes! Thank you for being awesome! If you want to contribute in any way, please email us at hello@justbuild.ing or join the <a href="https://tinyurl.com/jb-slackinvite" target="_blank">slack</a> and DM Max or Jacob.</p>
+
+        <p><strong>I have further questions! How can I reach you?</strong></p>
+        <p>You can reach us at hello@justbuild.ing</p>
+
+    </section>
+
 </body>
 </html>
