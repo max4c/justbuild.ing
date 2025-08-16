@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - JustBuild</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="styles/reset.css">
+    <style>
+        /* Import styles from main site */
+        .header-top .apply-btn {
+            background-color: #c84343;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .nav-cta-btn {
+            background-color: #c84343;
+            color: white !important;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        main {
+            display: block;
+        }
+
+        header {
+            margin-bottom: 0;
+        }
+
+        .main-nav {
+            padding: 0.5rem 8rem 0;
+        }
+
+        .container {
+            padding-left: 8rem;
+            padding-right: 8rem;
+        }
+
+        /* Contact page specific styles */
+        .contact-hero {
+            background-color: #FFF3F1;
+            padding: 4rem 8rem;
+            text-align: center;
+        }
+
+        .contact-hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin: 0 0 1rem 0;
+            color: #1a1a1a;
+        }
+
+        .contact-hero p {
+            font-size: 1.2rem;
+            color: #666;
+            margin: 0;
+        }
+
+        .contact-section {
+            padding: 4rem 8rem;
+        }
+
+        .contact-main-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin: 0 0 3rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0 0 3rem 0;
+            color: #1a1a1a;
+            text-align: center;
+        }
+
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .founder-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .founder-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .founder-avatar {
+            margin-bottom: 1.5rem;
+        }
+
+        .founder-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #f8f9fa;
+        }
+
+        .founder-info h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .founder-info p {
+            color: #666;
+            margin: 0 0 1.5rem 0;
+            font-style: italic;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .social-link:hover {
+            background: #c84343;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .contact-methods {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-methods h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 0 0 1rem 0;
+        }
+
+        .email-link {
+            display: inline-block;
+            font-size: 1.2rem;
+            color: #c84343;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .email-link:hover {
+            text-decoration: underline;
+        }
+
+        .response-note {
+            background: #fff3f1;
+            border: 1px solid #c84343;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .response-note p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .response-note strong {
+            color: #c84343;
+        }
+
+        footer {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .footer-content {
+            padding-left: 8rem;
+            padding-right: 8rem;
+        }
+
+        .footer-cta-strip {
+            padding-left: 8rem;
+            padding-right: 8rem;
+        }
+
+        .massive-justbuild {
+            font-size: 12rem;
+            font-weight: 900;
+            color: #C0362C;
+            text-align: right;
+            padding: 2rem 0 4rem 0;
+            margin: 0;
+            line-height: 0.8;
+            letter-spacing: -0.02em;
+        }
+
+        /* Icons */
+        .icon {
+            width: 16px;
+            height: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="apply-banner">
+                <span>Agent Hackathon — Aug 16 • Draper</span>
+                <button class="apply-btn">Register</button>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="nav-left">
+                <div class="logo">
+                    <img src="assets/logo.png" alt="JustBuild logo" width="40" height="40">
+                </div>
+                <a href="index.html">Home</a>
+                <a href="events.html">Events</a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+            <div class="nav-right">
+                <a href="https://tinyurl.com/jb-slackinvite" target="_blank" class="nav-cta-btn">Join Us</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="contact-section">
+            <h1 class="contact-main-title">Contact One of Us</h1>
+            
+            <div class="founders-grid">
+                <div class="founder-card">
+                    <div class="founder-avatar">
+                        <a href="https://x.com/jehovahscript" target="_blank">
+                            <img src="assets/jacob.jpg" alt="Jacob Wright" class="founder-image">
+                        </a>
+                    </div>
+                    <div class="founder-info">
+                        <h3>Jacob Wright</h3>
+                        <p>Co-founder</p>
+                        <div class="founder-links">
+                            <a href="https://www.linkedin.com/in/jacob-c-wright/" target="_blank" class="social-link">LinkedIn</a>
+                            <a href="https://x.com/jehovahscript" target="_blank" class="social-link">X (Twitter)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="founder-card">
+                    <div class="founder-avatar">
+                        <a href="https://x.com/maxforsey" target="_blank">
+                            <img src="assets/max.jpg" alt="Max Forsey" class="founder-image">
+                        </a>
+                    </div>
+                    <div class="founder-info">
+                        <h3>Max Forsey</h3>
+                        <p>Co-founder</p>
+                        <div class="founder-links">
+                            <a href="https://www.linkedin.com/in/maxforsey/" target="_blank" class="social-link">LinkedIn</a>
+                            <a href="https://x.com/maxforsey" target="_blank" class="social-link">X (Twitter)</a>
+                            <a href="https://maxforsey.com" target="_blank" class="social-link">Website</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-methods">
+                <h3>Get In Touch</h3>
+                <a href="mailto:hello@justbuild.ing" class="email-link">hello@justbuild.ing</a>
+                
+                <div class="response-note">
+                    <p> We respond to DMs much faster on X(Twitter). Feel free to reach out to us directly there for quicker responses.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-cta-strip">
+            <a href="https://tinyurl.com/jb-slackinvite" target="_blank" class="cta-btn">Ready to build? Join the Slack →</a>
+        </div>
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="logo">
+                    <img src="assets/logo.png" alt="JustBuild logo" width="40" height="40">
+                </div>
+                <p>Connecting Silicon Valley to Silicon Slopes</p>
+            </div>
+            <div class="footer-nav">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="https://tinyurl.com/jb-slackinvite" target="_blank">Join Slack</a></li>
+                </ul>
+                <h4 class="mt-4">Follow</h4>
+                <ul>
+                    <li><a href="https://x.com/justbuildHQ" target="_blank">X (Twitter)</a></li>
+                    <li><a href="https://www.linkedin.com/company/justbuild-ing/" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Massive JustBuild text -->
+    <div class="massive-justbuild">JustBuild</div>
+</body>
+</html>

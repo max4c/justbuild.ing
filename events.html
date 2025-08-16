@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - JustBuild</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="styles/reset.css">
+    <style>
+        /* Import styles from main site */
+        .header-top .apply-btn {
+            background-color: #c84343;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .nav-cta-btn {
+            background-color: #c84343;
+            color: white !important;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        main {
+            display: block;
+        }
+
+        header {
+            margin-bottom: 0;
+        }
+
+        .main-nav {
+            padding: 0.5rem 8rem 0;
+        }
+
+        .container {
+            padding-left: 8rem;
+            padding-right: 8rem;
+        }
+
+        /* Events page specific styles */
+        .events-hero {
+            background-color: #FFF3F1;
+            padding: 4rem 8rem;
+            text-align: center;
+        }
+
+        .events-hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin: 0 0 1rem 0;
+            color: #1a1a1a;
+        }
+
+        .events-hero p {
+            font-size: 1.2rem;
+            color: #666;
+            margin: 0;
+        }
+
+        .events-section {
+            padding: 4rem 8rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0 0 3rem 0;
+            color: #1a1a1a;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-left: 4px solid #c84343;
+        }
+
+        .event-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .event-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 0;
+        }
+
+        .event-date {
+            background: #c84343;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .event-goal {
+            font-size: 1rem;
+            color: #666;
+            margin: 0.5rem 0 1rem 0;
+            font-style: italic;
+        }
+
+        .event-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .stat-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #c84343;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .winners-section {
+            margin-top: 1.5rem;
+        }
+
+        .winners-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .winner-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .winner-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .winner-item:last-child {
+            border-bottom: none;
+        }
+
+        .winner-name {
+            font-weight: 600;
+            color: #c84343;
+        }
+        
+        .winner-name a {
+            color: #C84343;
+            text-decoration: none;
+        }
+        
+        .winner-name a:hover {
+            text-decoration: underline;
+        }
+        
+        .winner-project a {
+            color: #C84343;
+            text-decoration: none;
+        }
+        
+        .winner-project a:hover {
+            text-decoration: underline;
+        }
+        
+        .sponsors-list a {
+            color: #C84343;
+            text-decoration: none;
+        }
+        
+        .sponsors-list a:hover {
+            text-decoration: underline;
+        }
+
+        .winner-project {
+            color: #666;
+            margin-left: 0.5rem;
+        }
+
+        .sponsors-list {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .faq-section {
+            background: #f8f9fa;
+            padding: 4rem 8rem;
+        }
+
+        .faq-item {
+            margin-bottom: 2rem;
+        }
+
+        .faq-question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .faq-answer {
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        footer {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .footer-content {
+            padding-left: 8rem;
+            padding-right: 8rem;
+        }
+
+        .footer-cta-strip {
+            padding-left: 8rem;
+            padding-right: 8rem;
+        }
+
+        .massive-justbuild {
+            font-size: 12rem;
+            font-weight: 900;
+            color: #C0362C;
+            text-align: right;
+            padding: 2rem 0 4rem 0;
+            margin: 0;
+            line-height: 0.8;
+            letter-spacing: -0.02em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="apply-banner">
+                <span>Agent Hackathon — Aug 16 • Draper</span>
+                <button class="apply-btn">Register</button>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <div class="nav-left">
+                <div class="logo">
+                    <img src="assets/logo.png" alt="JustBuild logo" width="40" height="40">
+                </div>
+                <a href="index.html">Home</a>
+                <a href="events.html" class="active">Events</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-right">
+                <a href="https://tinyurl.com/jb-slackinvite" target="_blank" class="nav-cta-btn">Join Us</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="events-hero">
+            <h1>Events</h1>
+            <p>Building the future through hackathons, meetups, and community</p>
+        </section>
+
+        <section class="events-section">
+            <h2 class="section-title">Past Events</h2>
+
+            <div class="event-card">
+                <div class="event-header">
+                    <h3 class="event-title">May Revenue Race</h3>
+                    <span class="event-date">May 3 – May 31, 2025</span>
+                </div>
+                <p class="event-goal">Goal: Build and ship a product that earns real revenue in one month.</p>
+                
+                <div class="event-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">40</span>
+                        <span class="stat-label">Attendees</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">$50K</span>
+                        <span class="stat-label">In Prizes</span>
+                    </div>
+                </div>
+                
+                <p class="sponsors-list"><strong>Sponsors:</strong> <a href="https://stackblitz.com/" target="_blank">StackBlitz</a>, <a href="https://runpod.io/" target="_blank">RunPod</a>, <a href="https://contrary.com/" target="_blank">Contrary</a></p>
+                
+                <div class="winners-section">
+                    <h4 class="winners-title">Winners:</h4>
+                    <ul class="winner-list">
+                        <li class="winner-item">
+                            <span class="winner-name">Anonymous</span>
+                            <span class="winner-project">- Emotional Map (GPT extension for therapy)</span>
+                        </li>
+                        <li class="winner-item">
+                            <span class="winner-name"><a href="https://www.linkedin.com/in/alexander-densley/" target="_blank">Alexander</a></span>
+                            <span class="winner-project">- <a href="https://www.permitify.com/" target="_blank">Permitify</a> (AI-powered plan review for architects and engineers)</span>
+                        </li>
+                        <li class="winner-item">
+                            <span class="winner-name"><a href="https://x.com/MCCJasonX" target="_blank">Jason</a></span>
+                            <span class="winner-project">- <a href="https://yolomode.ai/" target="_blank">yolomode.ai</a> (AI video content generator)</span>
+                        </li>
+                        <li class="winner-item">
+                            <span class="winner-name"><a href="https://x.com/Lilyheartkoala" target="_blank">Lily</a></span>
+                            <span class="winner-project">- <a href="https://roomvamp.com/" target="_blank">RoomVamp</a> (AI-powered room planner)</span>
+                        </li>
+                        <li class="winner-item">
+                            <span class="winner-name"><a href="https://x.com/ShaikMohdHuzaif" target="_blank">Shaik Mohd Huzaifa</a></span>
+                            <span class="winner-project">- <a href="https://spoom-ai.netlify.app/" target="_blank">Spoom</a> (All in one tool to connect chat, tools, and data)</span>
+                        </li>
+                        <li class="winner-item">
+                            <span class="winner-name"><a href="https://www.linkedin.com/in/lundandrew/" target="_blank">Andrew Lund</a> & <a href="https://www.linkedin.com/in/lund-thomas/" target="_blank">Thomas Lund</a></span>
+                            <span class="winner-project">- <a href="https://getmisto.com/" target="_blank">Misto</a> (Software Tool for Farmers Market Vendors)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-header">
+                    <h3 class="event-title">Manus Meetup Provo</h3>
+                    <span class="event-date">May 29, 2025</span>
+                </div>
+                <p class="event-goal">Goal: Find the best or most innovative use case for Manus AI.</p>
+                
+                <div class="event-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">78</span>
+                        <span class="stat-label">Attendees</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">$50K</span>
+                        <span class="stat-label">In Prizes</span>
+                    </div>
+                </div>
+                
+                <p class="sponsors-list"><strong>Sponsors:</strong> <a href="https://manus.im/app" target="_blank">Manus AI</a>, <a href="https://contrary.com/" target="_blank">Contrary</a></p>
+                
+                <div class="winners-section">
+                    <h4 class="winners-title">Winners:</h4>
+                    <ul class="winner-list">
+                        <li class="winner-item">
+                            <span class="winner-name">1st: <a href="https://x.com/ammonfife" target="_blank">Ben Fife</a> and <a href="https://x.com/RussellF13378" target="_blank">Russel Fife</a></span>
+                            <span class="winner-project">- Used Manus to manage Google Cloud, built 2 video games</span>
+                        </li>
+                        <li class="winner-item">
+                            <span class="winner-name">2nd: <a href="https://x.com/jenshummy" target="_blank">Jens Shumway</a></span>
+                            <span class="winner-project">- Stock Analyzer Dashboard</span>
+                        </li>
+                        <li class="winner-item">
+                            <span class="winner-name">3rd: <a href="https://www.linkedin.com/in/michael-davis-498byu/" target="_blank">Michael Davis</a></span>
+                            <span class="winner-project">- Startup idea generation from patent scraping</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-header">
+                    <h3 class="event-title">Multi-Modal AI Hackathon</h3>
+                    <span class="event-date">March 8, 2025</span>
+                </div>
+                <p class="event-goal">Goal: Build with audio, image, video, and text APIs.</p>
+                
+                <div class="event-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">44</span>
+                        <span class="stat-label">Attendees</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">$1K</span>
+                        <span class="stat-label">In Prizes</span>
+                    </div>
+                </div>
+                
+                <p class="sponsors-list"><strong>Sponsors:</strong> <a href="https://www.cerebras.ai/" target="_blank">Cerebras</a>, <a href="https://www.gosameday.com/" target="_blank">Sameday</a></p>
+                
+                <div class="winners-section">
+                    <h4 class="winners-title">Winners:</h4>
+                    <ul class="winner-list">
+                        <li class="winner-item">
+                            <span class="winner-name">1st: <a href="https://x.com/tristanbob" target="_blank">Tristan Rhodes</a> & Team OmniVision</span>
+                            <span class="winner-project">- Real-time video recognition</span>
+                        </li>
+                        <li class="winner-item">
+                            <span class="winner-name">2nd: <a href="https://www.linkedin.com/in/mattwoodco/" target="_blank">Matt Wood</a></span>
+                            <span class="winner-project">- RealReal (LLM workflow builder)</span>
+                        </li>
+                        <li class="winner-item">
+                            <span class="winner-name">3rd (Tie): <a href="https://www.linkedin.com/in/jack-saller-15514212a/" target="_blank">Jack Saller</a></span>
+                            <span class="winner-project">- Music generation via hand video recognition</span>
+                        </li>
+                        <li class="winner-item">
+                            <span class="winner-name">3rd (Tie): <a href="https://x.com/JeffOlmo" target="_blank">Jeffrey Olmo</a></span>
+                            <span class="winner-project">- Spotify playlist generation from image</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-header">
+                    <h3 class="event-title">UT Tech Week's Shortest Hackathon</h3>
+                    <span class="event-date">January 29, 2025</span>
+                </div>
+                <p class="event-goal">Goal: 2-hour hackathon. Build, demo, win.</p>
+                
+                <div class="event-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">65</span>
+                        <span class="stat-label">Attendees</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">$4K</span>
+                        <span class="stat-label">In Prizes</span>
+                    </div>
+                </div>
+                
+                <p class="sponsors-list"><strong>Sponsors:</strong> <a href="https://www.buster.so/" target="_blank">Buster</a>, <a href="https://www.remihq.com/" target="_blank">Remi</a></p>
+                
+                <div class="winners-section">
+                    <h4 class="winners-title">Winners:</h4>
+                    <ul class="winner-list">
+                        <li class="winner-item">
+                            <span class="winner-name">1st: <a href="https://www.linkedin.com/in/jakegibson/" target="_blank">Jake Gibson</a></span>
+                            <span class="winner-project">- Dynamic Pokemon Go with AI</span>
+                        </li>
+                        <li class="winner-item">
+                            <span class="winner-name">2nd: <a href="https://www.linkedin.com/in/beric-bearnson/" target="_blank">Beric Bearnson</a></span>
+                            <span class="winner-project">- Chat app on microprocessors</span>
+                        </li>
+                        <li class="winner-item">
+                            <span class="winner-name">3rd: <a href="https://www.linkedin.com/in/nate-kelley/" target="_blank">Nate Kelley</a></span>
+                            <span class="winner-project">- Collaborative 20 Questions game</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="event-header">
+                    <h3 class="event-title">JustBuild Kickoff Hackathon</h3>
+                    <span class="event-date">December 6, 2024</span>
+                </div>
+                <p class="event-goal">Goal: 24-hour hackathon. Kickoff event.</p>
+                
+                <div class="event-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">39</span>
+                        <span class="stat-label">Attendees</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">$3K</span>
+                        <span class="stat-label">In Prizes</span>
+                    </div>
+                </div>
+                
+                <p class="sponsors-list"><strong>Sponsors:</strong> <a href="https://www.remihq.com/" target="_blank">Remi</a>, <a href="https://getcartwheel.com/" target="_blank">Cartwheel</a>, <a href="https://www.usestratus.com/" target="_blank">Stratus</a></p>
+                
+                <div class="winners-section">
+                    <h4 class="winners-title">Winners:</h4>
+                    <ul class="winner-list">
+                        <li class="winner-item">
+                            <span class="winner-name">1st: <a href="https://www.linkedin.com/in/brightlightkim/" target="_blank">Taeyang Kim</a>, <a href="https://www.linkedin.com/in/jason-jonghyuk/" target="_blank">Jonghyuk Lee</a>, <a href="https://www.linkedin.com/in/taehoon-kim-b6334b276/" target="_blank">Taehoon Kim</a>, <a href="https://www.linkedin.com/in/yirang-lim/" target="_blank">Yirang Lim</a></span>
+                            <span class="winner-project">- Remi 2.0 (AI Roofing Analysis & Marketing)</span>
+                        </li>
+                        <li class="winner-item">
+                            <span class="winner-name">2nd: <a href="https://www.linkedin.com/in/josh-gimenes/" target="_blank">Josh Gimenes</a></span>
+                            <span class="winner-project">- AI Course Builder (Web/Android/iOS)</span>
+                        </li>
+                        <li class="winner-item">
+                            <span class="winner-name">3rd: <a href="https://x.com/chandlerjward" target="_blank">Chandler J. Ward</a></span>
+                            <span class="winner-project">- AI Roof Analyzer (RoboFlow Vision Model)</span>
+                        </li>
+                        <li class="winner-item">
+                            <span class="winner-name">Best UX/UI: <a href="https://www.linkedin.com/in/travisse/" target="_blank">Travisse Hansen</a></span>
+                            <span class="winner-project">- AI Body Fat Analyzer & Physique Upsell</span>
+                        </li>
+                        <li class="winner-item">
+                            <span class="winner-name">Most Practical AI: <a href="https://www.linkedin.com/in/ben-n-cullen/" target="_blank">Ben Cullen</a>, <a href="https://www.linkedin.com/in/collin--mcgregor/" target="_blank">Collin McGregor</a>, <a href="https://www.linkedin.com/in/sawyerhalverson/" target="_blank">Sawyer Halverson</a></span>
+                            <span class="winner-project">- Leet-Coach (AI Leetcode Coach)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-cta-strip">
+            <a href="https://tinyurl.com/jb-slackinvite" target="_blank" class="cta-btn">Ready to build? Join the Slack →</a>
+        </div>
+        <div class="footer-content">
+            <div class="footer-left">
+                <div class="logo">
+                    <img src="assets/logo.png" alt="JustBuild logo" width="40" height="40">
+                </div>
+                <p>Connecting Silicon Valley to Silicon Slopes</p>
+            </div>
+            <div class="footer-nav">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="events.html" class="active">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="https://tinyurl.com/jb-slackinvite" target="_blank">Join Slack</a></li>
+                </ul>
+                <h4 class="mt-4">Follow</h4>
+                <ul>
+                    <li><a href="https://x.com/justbuildHQ" target="_blank">X (Twitter)</a></li>
+                    <li><a href="https://www.linkedin.com/company/justbuild-ing/" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Massive JustBuild text -->
+    <div class="massive-justbuild">JustBuild</div>
+</body>
+</html>
