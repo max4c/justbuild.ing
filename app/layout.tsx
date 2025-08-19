@@ -53,7 +53,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
         
         {/* Preload critical assets */}
-        <link rel="preload" href="/assets/bridge.png" as="image" />
+        <link rel="preload" href="/assets/bridge.webp?v=3" as="image" />
         <link rel="preload" href="/assets/sponsors/windsurf-black-wordmark.svg" as="image" />
         <link rel="preload" href="/assets/sponsors/runpod.svg" as="image" />
         <link rel="preload" href="/assets/sponsors/contrary.svg" as="image" />

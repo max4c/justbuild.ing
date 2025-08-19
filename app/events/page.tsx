@@ -113,10 +113,11 @@ export default function EventsPage() {
       <section className="relative min-h-screen pt-32 pb-16">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/events.png"
+            src="/assets/events.webp?v=4"
             alt="Events background"
             fill
             priority
+            unoptimized
             className="object-cover object-top"
             sizes="100vw"
           />

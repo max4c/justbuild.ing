@@ -38,16 +38,18 @@ export default function ContactPage() {
   return (
     <>
       {/* Contact Section with Background */}
-      <section 
-        className="relative min-h-screen pt-32 md:pt-48 pb-16"
-        style={{
-          backgroundImage: 'url(/assets/bridge.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-6 lg:px-32">
+      <section className="relative min-h-screen pt-32 md:pt-48 pb-16">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/assets/bridge.webp?v=3"
+            alt="Bridge background"
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-32">
           <h1 className="text-6xl font-semibold text-white text-center mb-8 md:mb-12">
             Contact Us
           </h1>

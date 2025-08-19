@@ -79,10 +79,11 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0" style={{ transform: 'scaleX(-1)' }}>
           <Image
-            src="/assets/bridge.png"
+            src="/assets/bridge.webp?v=4"
             alt="Bridge background"
             fill
             priority
+            unoptimized
             className="object-cover object-top"
             sizes="100vw"
           />
@@ -206,7 +207,7 @@ export default function Home() {
             
             <div className="lg:col-span-2 flex justify-center">
               <Image 
-                src="/assets/JustBuild.png" 
+                src="/assets/JustBuild.webp?v=4" 
                 alt="JustBuild community and events"
                 width={1200}
                 height={800}
