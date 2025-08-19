@@ -20,7 +20,7 @@ const events: Event[] = [
   {
     title: "May Revenue Race",
     goal: "Build and ship a product that earns real revenue in one month.",
-    date: "May 3 – May 31, 2025",
+    date: "May 3 – 31, 2025",
     attendees: 40,
     prizes: "$50K",
     sponsors: [
@@ -128,43 +128,46 @@ export default function EventsPage() {
             {events.map((event, index) => (
               <div key={index} className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
                 {/* Event Header */}
-                <div className="flex flex-wrap justify-between items-start gap-4 mb-4">
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">{event.title}</h3>
-                    <p className="text-sm text-gray-600 italic">{event.goal}</p>
-                  </div>
-                  
-                  {/* Sponsors */}
-                  <div className="flex items-center gap-3">
-                    {event.sponsors.map((sponsor, idx) => (
-                      <a key={idx} href={sponsor.url} target="_blank" rel="noopener noreferrer">
-                        <Image 
-                          src={sponsor.logo} 
-                          alt={sponsor.name}
-                          width={60}
-                          height={26}
-                          className="h-[26px] w-auto object-contain grayscale-[0.3] hover:grayscale-0 transition-all"
-                        />
-                      </a>
-                    ))}
-                  </div>
-                  
-                  {/* Stats */}
-                  <div className="flex gap-3">
-                    <div className="bg-gray-50 px-4 py-2 rounded text-center">
-                      <span className="block text-xl font-bold text-bridge-500">{event.attendees}</span>
-                      <span className="text-xs uppercase text-gray-600">Attendees</span>
+                <div className="mb-4">
+                  {/* Single row: Title, Description, Sponsors, Date, Stats */}
+                  <div className="flex flex-wrap items-center gap-4">
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-xl font-bold text-gray-900 mb-1">{event.title}</h3>
+                      <p className="text-sm text-gray-600 italic">{event.goal}</p>
                     </div>
-                    <div className="bg-gray-50 px-4 py-2 rounded text-center">
-                      <span className="block text-xl font-bold text-bridge-500">{event.prizes}</span>
-                      <span className="text-xs uppercase text-gray-600">In Prizes</span>
+                    
+                    <div className="flex items-center gap-3">
+                      {event.sponsors.map((sponsor, idx) => (
+                        <a key={idx} href={sponsor.url} target="_blank" rel="noopener noreferrer">
+                          <Image 
+                            src={sponsor.logo} 
+                            alt={sponsor.name}
+                            width={60}
+                            height={26}
+                            className="h-[26px] w-auto object-contain grayscale-[0.3] hover:grayscale-0 transition-all"
+                          />
+                        </a>
+                      ))}
+                    </div>
+                    
+                    <div className="bg-gray-50 px-2 py-1 rounded">
+                      <div className="flex gap-2 items-center text-xs">
+                        <div className="text-center">
+                          <span className="block text-sm font-bold text-bridge-500">{event.attendees}</span>
+                          <span className="text-xs uppercase text-gray-600">Builders</span>
+                        </div>
+                        <div className="w-px h-4 bg-gray-300"></div>
+                        <div className="text-center">
+                          <span className="block text-sm font-bold text-bridge-500">{event.prizes}</span>
+                          <span className="text-xs uppercase text-gray-600">In Prizes</span>
+                        </div>
+                        <div className="w-px h-4 bg-gray-300"></div>
+                        <div className="text-center">
+                          <span className="block text-xs font-medium text-gray-600">{event.date}</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  
-                  {/* Date */}
-                  <span className="bg-bridge-500 text-white px-3 py-1.5 rounded text-xs font-medium">
-                    {event.date}
-                  </span>
                 </div>
                 
                 {/* Winners Section */}
