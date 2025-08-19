@@ -93,7 +93,7 @@ const events: Event[] = [
     prizes: "$3K",
     sponsors: [
       { name: "Remi", logo: "/assets/sponsors/remi.png", url: "https://www.remihq.com/" },
-      { name: "Cartwheel", logo: "/assets/sponsors/cartwheel.png", url: "https://getcartwheel.com/" },
+      { name: "Cartwheel", logo: "/assets/sponsors/cartwheel.svg", url: "https://getcartwheel.com/" },
       { name: "Stratus", logo: "/assets/sponsors/stratus.png", url: "https://www.usestratus.com/" }
     ],
     winners: [
@@ -144,6 +144,7 @@ export default function EventsPage() {
                             alt={sponsor.name}
                             width={60}
                             height={26}
+                            loading="lazy"
                             className="h-[26px] w-auto object-contain grayscale-[0.3] hover:grayscale-0 transition-all"
                           />
                         </a>

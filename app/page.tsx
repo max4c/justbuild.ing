@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -16,7 +16,7 @@ const sponsors = [
   { name: 'Manus', logo: '/assets/sponsors/manus.png', url: 'https://manus.im/app' },
   { name: 'Mastra', logo: '/assets/sponsors/mastra.jpg', url: 'https://mastra.ai/' },
   { name: 'Cerebras', logo: '/assets/sponsors/cerebras.png', url: 'https://www.cerebras.ai/' },
-  { name: 'Cartwheel', logo: '/assets/sponsors/cartwheel.png', url: 'https://getcartwheel.com/' },
+  { name: 'Cartwheel', logo: '/assets/sponsors/cartwheel.svg', url: 'https://getcartwheel.com/' },
   { name: 'Buster', logo: '/assets/sponsors/buster.png', url: 'https://www.buster.so/' },
 ];
 
@@ -55,7 +55,7 @@ export default function Home() {
   const [cyclingIndex, setCyclingIndex] = useState(0);
   const [faqOpen, setFaqOpen] = useState(false);
   
-  const roles = [
+  const roles = useMemo(() => [
     'founders',
     'business owners',
     'product managers',
@@ -63,7 +63,7 @@ export default function Home() {
     'designers',
     'students',
     'professionals'
-  ];
+  ], []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -133,6 +133,7 @@ export default function Home() {
                   alt={`${sponsor.name} logo`}
                   width={120}
                   height={60}
+                  loading="lazy"
                   className="max-w-full max-h-full object-contain"
                 />
               </a>
@@ -194,6 +195,8 @@ export default function Home() {
                 alt="JustBuild community and events"
                 width={1200}
                 height={800}
+                priority={false}
+                loading="lazy"
                 className="rounded-2xl shadow-2xl w-full h-auto object-cover max-w-4xl"
               />
             </div>
