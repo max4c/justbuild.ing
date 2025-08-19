@@ -113,7 +113,7 @@ export default function EventsPage() {
       <section className="relative min-h-screen pt-32 pb-16">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/events.webp?v=6"
+            src="/assets/events.webp?t=20250819175100"
             alt="Events background"
             fill
             priority

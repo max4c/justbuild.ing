@@ -41,7 +41,7 @@ export default function ContactPage() {
       <section className="relative min-h-screen pt-32 md:pt-48 pb-16">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/bridge.webp?v=6"
+            src="/assets/bridge.webp?t=20250819175100"
             alt="Bridge background"
             fill
             priority
