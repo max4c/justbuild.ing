@@ -65,6 +65,16 @@ export default function Footer() {
                     Join Slack
                   </a>
                 </li>
+                <li>
+                  <a 
+                    href="https://lu.ma/justbuild" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-600 hover:text-bridge-500 transition-colors"
+                  >
+                    Events Calendar
+                  </a>
+                </li>
               </ul>
               
               <h4 className="font-semibold mt-6 mb-4">Follow</h4>
