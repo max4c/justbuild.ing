@@ -18,7 +18,8 @@ const founders: Founder[] = [
     image: "/assets/jacob.jpg",
     links: {
       linkedin: "https://www.linkedin.com/in/jacob-c-wright/",
-      twitter: "https://x.com/jehovahscript"
+      twitter: "https://x.com/jehovahscript",
+      website: "https://www.jacobwright.xyz/"
     }
   },
   {
