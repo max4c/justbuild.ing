@@ -110,12 +110,12 @@ export default function ContactPage() {
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Get In Touch</h3>
             <a 
               href="mailto:hello@justbuild.ing" 
-              className="text-xl text-bridge-500 font-semibold hover:underline inline-block mb-6"
+              className="text-xl text-bridge-500 font-semibold hover:underline inline-block mb-4"
             >
               hello@justbuild.ing
             </a>
             
-            <div className="bg-red-50 border border-bridge-500 rounded-lg p-4 mt-6">
+            <div className="bg-red-50 border border-bridge-500 rounded-lg p-4 mt-4">
               <p className="text-gray-600 text-sm">
                 We respond to DMs much faster on X(Twitter). Feel free to reach out to us directly there for quicker responses.
               </p>
