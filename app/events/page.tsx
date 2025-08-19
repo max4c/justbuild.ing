@@ -110,16 +110,18 @@ export default function EventsPage() {
   return (
     <>
       {/* Hero Section with Background */}
-      <section 
-        className="relative min-h-screen pt-32 pb-16"
-        style={{
-          backgroundImage: 'url(/assets/events.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center top',
-          backgroundRepeat: 'no-repeat',
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-6 lg:px-32">
+      <section className="relative min-h-screen pt-32 pb-16">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/assets/events.png"
+            alt="Events background"
+            fill
+            priority
+            className="object-cover object-top"
+            sizes="100vw"
+          />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-32">
           <h1 className="text-6xl font-semibold text-white text-center mb-12">
             Past Events
           </h1>

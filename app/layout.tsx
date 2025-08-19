@@ -4,7 +4,11 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: 'swap',
+  preload: true
+});
 
 export const metadata: Metadata = {
   title: "JustBuild - Connecting Silicon Valley to Silicon Slopes",
@@ -41,6 +45,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* DNS Prefetch for external domains */}
+        <link rel="dns-prefetch" href="//lu.ma" />
+        <link rel="dns-prefetch" href="//tinyurl.com" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        
+        {/* Preload critical assets */}
+        <link rel="preload" href="/assets/bridge.png" as="image" />
+        <link rel="preload" href="/assets/sponsors/windsurf-black-wordmark.svg" as="image" />
+        <link rel="preload" href="/assets/sponsors/runpod.svg" as="image" />
+        <link rel="preload" href="/assets/sponsors/contrary.svg" as="image" />
+        <link rel="preload" href="/assets/sponsors/bolt.svg" as="image" />
+      </head>
       <body className={`${inter.className} antialiased`}>
         <Header />
         <main className="min-h-screen">

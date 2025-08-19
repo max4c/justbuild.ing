@@ -77,15 +77,16 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-[85vh] flex items-center">
         {/* Background Image */}
-        <div 
-          className="absolute inset-0 z-0"
-          style={{
-            backgroundImage: 'url(/assets/bridge.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center top',
-            transform: 'scaleX(-1)',
-          }}
-        />
+        <div className="absolute inset-0 z-0" style={{ transform: 'scaleX(-1)' }}>
+          <Image
+            src="/assets/bridge.png"
+            alt="Bridge background"
+            fill
+            priority
+            className="object-cover object-top"
+            sizes="100vw"
+          />
+        </div>
         {/* Gradient Overlay */}
         <div className="absolute inset-0 hero-gradient z-0" />
         
@@ -104,7 +105,7 @@ export default function Home() {
                 href="https://lu.ma/justbuild" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-bridge-500 transition-all duration-300"
+                className="inline-flex items-center justify-center px-6 py-2.5 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-bridge-500 transition-all duration-300"
               >
                 See upcoming events
               </a>
@@ -125,7 +126,21 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-6 lg:px-32 py-16">
         <h2 className="text-3xl font-semibold text-center mb-8">Trusted by</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1">
-          {sponsors.map((sponsor) => (
+          {sponsors.slice(0, 8).map((sponsor) => (
+            <div key={sponsor.name} className="flex justify-center items-center bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 h-20">
+              <a href={sponsor.url} target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center">
+                <Image 
+                  src={sponsor.logo} 
+                  alt={`${sponsor.name} logo`}
+                  width={120}
+                  height={60}
+                  loading="lazy"
+                  className="max-w-full max-h-full object-contain"
+                />
+              </a>
+            </div>
+          ))}
+          {sponsors.slice(8).map((sponsor) => (
             <div key={sponsor.name} className="flex justify-center items-center bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 h-20">
               <a href={sponsor.url} target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center">
                 <Image 
