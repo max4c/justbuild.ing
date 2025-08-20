@@ -41,12 +41,13 @@ export default function ContactPage() {
       <section className="relative min-h-screen pt-32 md:pt-48 pb-16">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/bridge.webp?t=20250819175100"
-            alt="Bridge background"
+            src="/assets/bridge.webp"
+            alt="Bridge connecting Silicon Valley to Silicon Slopes"
             fill
-            priority
+            loading="lazy"
             className="object-cover object-center"
             sizes="100vw"
+            quality={75}
           />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-32">

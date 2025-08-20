@@ -113,13 +113,13 @@ export default function EventsPage() {
       <section className="relative min-h-screen pt-32 pb-16">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/assets/events.webp?t=20250819175100"
-            alt="Events background"
+            src="/assets/events.webp"
+            alt="Utah landscape showcasing past events and community building"
             fill
-            priority
-            unoptimized
+            loading="lazy"
             className="object-cover object-top"
             sizes="100vw"
+            quality={75}
           />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-32">

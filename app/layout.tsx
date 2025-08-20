@@ -52,8 +52,10 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
         
-        {/* Preload critical assets */}
-        <link rel="preload" href="/assets/bridge.webp?t=20250819175100" as="image" />
+        {/* Preload critical LCP hero image only */}
+        <link rel="preload" href="/assets/bridge.webp" as="image" fetchPriority="high" />
+        
+        {/* Preload key sponsor SVGs for above-the-fold content */}
         <link rel="preload" href="/assets/sponsors/windsurf-black-wordmark.svg" as="image" />
         <link rel="preload" href="/assets/sponsors/runpod.svg" as="image" />
         <link rel="preload" href="/assets/sponsors/contrary.svg" as="image" />
