@@ -23,7 +23,6 @@ export default function Header() {
               width={32} 
               height={32}
               className="h-8 w-auto object-contain"
-              style={{ width: "auto", height: "auto" }}
             />
           </Link>
           <div className="flex items-center gap-4 text-sm">
@@ -60,7 +59,6 @@ export default function Header() {
                 width={120} 
                 height={32}
                 className="h-8 w-auto object-contain"
-                style={{ width: "auto", height: "auto" }}
               />
             </Link>
             <div className="flex items-center gap-6">
