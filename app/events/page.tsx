@@ -150,6 +150,7 @@ export default function EventsPage() {
                             height={26}
                             loading="lazy"
                             className="h-[26px] w-auto object-contain grayscale-[0.3] hover:grayscale-0 transition-all"
+                            style={{ width: "auto", height: "auto" }}
                           />
                         </a>
                       ))}

@@ -138,6 +138,7 @@ export default function Home() {
                   height={60}
                   loading="lazy"
                   className="max-w-full max-h-full object-contain"
+                  style={{ width: "auto", height: "auto" }}
                 />
               </a>
             </div>
@@ -152,6 +153,7 @@ export default function Home() {
                   height={60}
                   loading="lazy"
                   className="max-w-full max-h-full object-contain"
+                  style={{ width: "auto", height: "auto" }}
                 />
               </a>
             </div>

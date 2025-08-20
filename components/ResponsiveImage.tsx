@@ -65,13 +65,13 @@ export default function ResponsiveImage({
     }
     
     return (
-      <picture>
+      <picture className={fill ? "relative block w-full h-full" : ""}>
         <source srcSet={srcSet} sizes={sizes} type="image/webp" />
         <Image
           src={fallbackSrc}
           alt={alt}
           priority={priority}
-          loading={loading}
+          loading={priority ? undefined : loading}
           className={className}
           fill={fill}
           width={width}
@@ -89,7 +89,7 @@ export default function ResponsiveImage({
       src={src}
       alt={alt}
       priority={priority}
-      loading={loading}
+      loading={priority ? undefined : loading}
       className={className}
       fill={fill}
       width={width}

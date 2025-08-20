@@ -68,6 +68,7 @@ export default function ContactPage() {
                       width={120}
                       height={120}
                       className="w-20 h-20 md:w-[120px] md:h-[120px] rounded-full object-cover border-4 border-gray-100 mx-auto"
+                      style={{ width: "auto", height: "auto" }}
                     />
                   </a>
                 </div>
