@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import ResponsiveImage from '@/components/ResponsiveImage';
 
 interface Event {
   title: string;
@@ -112,14 +113,14 @@ export default function EventsPage() {
       {/* Hero Section with Background */}
       <section className="relative min-h-screen pt-32 pb-16">
         <div className="absolute inset-0 z-0">
-          <Image
+          <ResponsiveImage
             src="/assets/events.webp"
             alt="Utah landscape showcasing past events and community building"
             fill
             loading="lazy"
             className="object-cover object-top"
             sizes="100vw"
-            quality={75}
+            imageType="background"
           />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-32">

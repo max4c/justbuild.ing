@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import ResponsiveImage from '@/components/ResponsiveImage';
 
 const sponsors = [
   { name: 'Windsurf', logo: '/assets/sponsors/windsurf-black-wordmark.svg', url: 'https://windsurf.com/' },
@@ -78,14 +79,14 @@ export default function Home() {
       <section className="relative min-h-[85vh] flex items-center">
         {/* Background Image */}
         <div className="absolute inset-0 z-0" style={{ transform: 'scaleX(-1)' }}>
-          <Image
+          <ResponsiveImage
             src="/assets/bridge.webp"
             alt="Bridge connecting Silicon Valley to Silicon Slopes"
             fill
             priority
             className="object-cover object-top"
             sizes="100vw"
-            quality={75}
+            imageType="hero"
           />
         </div>
         {/* Gradient Overlay */}
@@ -206,16 +207,15 @@ export default function Home() {
             </div>
             
             <div className="lg:col-span-2 flex justify-center">
-              <Image 
+              <ResponsiveImage 
                 src="/assets/JustBuild.webp" 
                 alt="JustBuild community and events showcase"
                 width={1200}
                 height={800}
-                priority={false}
                 loading="lazy"
                 className="rounded-2xl shadow-2xl w-full h-auto object-cover max-w-4xl"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                quality={75}
+                imageType="showcase"
               />
             </div>
           </div>

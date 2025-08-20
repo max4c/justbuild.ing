@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import ResponsiveImage from '@/components/ResponsiveImage';
 
 interface Founder {
   name: string;
@@ -40,14 +41,14 @@ export default function ContactPage() {
       {/* Contact Section with Background */}
       <section className="relative min-h-screen pt-32 md:pt-48 pb-16">
         <div className="absolute inset-0 z-0">
-          <Image
+          <ResponsiveImage
             src="/assets/bridge.webp"
             alt="Bridge connecting Silicon Valley to Silicon Slopes"
             fill
             loading="lazy"
             className="object-cover object-center"
             sizes="100vw"
-            quality={75}
+            imageType="background"
           />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-32">
