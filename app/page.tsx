@@ -211,7 +211,7 @@ export default function Home() {
             
             <div className="lg:col-span-2 flex justify-center">
               <Image 
-                src="/assets/justbuild.webp" 
+                src="/assets/JustBuild.webp" 
                 alt="JustBuild community and events showcase"
                 width={800}
                 height={600}
