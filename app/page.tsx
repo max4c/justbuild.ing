@@ -3,7 +3,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import ResponsiveImage from '@/components/ResponsiveImage';
 
 const sponsors = [
   { name: 'Windsurf', logo: '/assets/sponsors/windsurf-black-wordmark.svg', url: 'https://windsurf.com/' },
@@ -110,7 +109,7 @@ export default function Home() {
             
             {/* Image */}
             <div className="relative h-[400px] md:h-[500px] lg:h-[600px] lg:col-span-3 mt-8 lg:mt-20">
-              <ResponsiveImage
+              <Image
                 src="/assets/bridge.webp"
                 alt="Bridge connecting Silicon Valley to Silicon Slopes"
                 fill
@@ -118,7 +117,6 @@ export default function Home() {
                 className="object-cover object-center rounded-2xl"
                 sizes="(max-width: 768px) 100vw, 66vw"
                 quality={100}
-                imageType="hero"
               />
             </div>
           </div>
@@ -212,8 +210,8 @@ export default function Home() {
             </div>
             
             <div className="lg:col-span-2 flex justify-center">
-              <ResponsiveImage 
-                src="/assets/JustBuild.webp" 
+              <Image 
+                src="/assets/justbuild.webp" 
                 alt="JustBuild community and events showcase"
                 width={800}
                 height={600}
@@ -221,7 +219,6 @@ export default function Home() {
                 className="rounded-2xl shadow-2xl w-full h-auto object-cover max-w-2xl"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 800px"
                 quality={100}
-                imageType="showcase"
               />
             </div>
           </div>
