@@ -15,7 +15,7 @@ const sponsors = [
   { name: 'Stratus', logo: '/assets/sponsors/stratus.png', url: 'https://www.usestratus.com/' },
   { name: 'Redo', logo: '/assets/sponsors/redo.png', url: 'https://www.getredo.com/en' },
   { name: 'Manus', logo: '/assets/sponsors/manus.png', url: 'https://manus.im/app' },
-  { name: 'Mastra', logo: '/assets/sponsors/mastra.jpg', url: 'https://mastra.ai/' },
+  { name: 'Mastra', logo: '/assets/sponsors/mastra.png', url: 'https://mastra.ai/' },
   { name: 'Cerebras', logo: '/assets/sponsors/cerebras.png', url: 'https://www.cerebras.ai/' },
   { name: 'Cartwheel', logo: '/assets/sponsors/cartwheel.svg', url: 'https://getcartwheel.com/' },
   { name: 'Buster', logo: '/assets/sponsors/buster.png', url: 'https://www.buster.so/' },
@@ -54,7 +54,7 @@ const faqs = [
 
 export default function Home() {
   const [cyclingIndex, setCyclingIndex] = useState(0);
-  const [faqOpen, setFaqOpen] = useState(false);
+  const [faqOpenStates, setFaqOpenStates] = useState<boolean[]>(new Array(faqs.length).fill(false));
   
   const roles = useMemo(() => [
     'founders',
@@ -76,60 +76,62 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[85vh] flex items-center">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0" style={{ transform: 'scaleX(-1)' }}>
-          <ResponsiveImage
-            src="/assets/bridge.webp"
-            alt="Bridge connecting Silicon Valley to Silicon Slopes"
-            fill
-            priority
-            className="object-cover object-top"
-            sizes="100vw"
-            imageType="hero"
-          />
-        </div>
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 hero-gradient z-0" />
-        
-        {/* Content */}
-        <div className="relative z-10 container py-32">
-          <div className="max-w-2xl ml-8">
-            <h1 className="text-6xl lg:text-7xl font-semibold text-white mb-4">
-              JustBuild
-            </h1>
-            <p className="text-xl text-white mb-8" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}>
-              Connecting Silicon Valley to Silicon Slopes
-            </p>
+      <section className="bg-tertiary pt-40 md:pt-32 lg:pt-24 pb-16">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
+          <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-start lg:items-center">
+            {/* Content */}
+            <div className="lg:col-span-2">
+              <h1 className="text-6xl lg:text-7xl font-semibold text-gray-900 mb-4">
+                JustBuild
+              </h1>
+              <p className="text-xl text-gray-700 mb-8 whitespace-nowrap">
+                Connecting Silicon Valley to Silicon Slopes
+              </p>
+              
+              <div className="flex flex-wrap gap-3 items-start">
+                <a 
+                  href="https://lu.ma/justbuild" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-bridge-500 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300"
+                >
+                  See upcoming events
+                </a>
+                <a 
+                  href="https://tinyurl.com/jb-slackinvite" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-bridge-500 text-white font-semibold rounded-lg hover:bg-bridge-600 transition-all duration-300"
+                >
+                  Join Slack
+                </a>
+              </div>
+            </div>
             
-            <div className="flex flex-wrap gap-3 items-start">
-              <a 
-                href="https://lu.ma/justbuild" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-6 py-2.5 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-bridge-500 transition-all duration-300"
-              >
-                See upcoming events
-              </a>
-              <a 
-                href="https://tinyurl.com/jb-slackinvite" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-6 py-3 bg-white text-bridge-500 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300"
-              >
-                Join Slack
-              </a>
+            {/* Image */}
+            <div className="relative h-[400px] md:h-[500px] lg:h-[600px] lg:col-span-3 mt-8 lg:mt-20">
+              <ResponsiveImage
+                src="/assets/bridge.webp"
+                alt="Bridge connecting Silicon Valley to Silicon Slopes"
+                fill
+                priority
+                className="object-cover object-center rounded-2xl"
+                sizes="(max-width: 768px) 100vw, 66vw"
+                quality={100}
+                imageType="hero"
+              />
             </div>
           </div>
         </div>
       </section>
 
       {/* Sponsors Section */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-32 py-16">
+      <section className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-6 lg:px-32">
         <h2 className="text-3xl font-semibold text-center mb-8">Trusted by</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1">
           {sponsors.slice(0, 8).map((sponsor) => (
-            <div key={sponsor.name} className="flex justify-center items-center bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 h-20">
+            <div key={sponsor.name} className="flex justify-center items-center bg-tertiary rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 h-20">
               <a href={sponsor.url} target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center">
                 <Image 
                   src={sponsor.logo} 
@@ -144,7 +146,7 @@ export default function Home() {
             </div>
           ))}
           {sponsors.slice(8).map((sponsor) => (
-            <div key={sponsor.name} className="flex justify-center items-center bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 h-20">
+            <div key={sponsor.name} className="flex justify-center items-center bg-tertiary rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 h-20">
               <a href={sponsor.url} target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center">
                 <Image 
                   src={sponsor.logo} 
@@ -158,16 +160,17 @@ export default function Home() {
               </a>
             </div>
           ))}
-          <div className="flex justify-center items-center bg-gray-50 rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 h-20 col-span-1 md:col-span-2">
+          <div className="flex justify-center items-center bg-tertiary rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 h-20 col-span-1 md:col-span-2">
             <Link href="/contact" className="text-gray-500 font-medium hover:text-bridge-500 transition-colors">
               Become a sponsor →
             </Link>
           </div>
         </div>
+        </div>
       </section>
 
       {/* AI Native Section */}
-      <section className="pb-0 pt-20">
+      <section className="pb-20 pt-20 bg-tertiary">
         <div className="max-w-7xl mx-auto px-6 lg:px-32">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-4xl font-semibold mb-4">We help Utah</h2>
@@ -201,7 +204,7 @@ export default function Home() {
                   href="https://lu.ma/justbuild" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-bridge-500 text-bridge-500 font-semibold rounded-lg hover:bg-bridge-500 hover:text-white transition-all duration-300 mt-auto"
+              className="inline-flex items-center justify-center px-6 py-3 bg-tertiary text-gray-900 font-semibold rounded-lg hover:bg-gray-200 transition-all duration-300 mt-auto"
                 >
                   See upcoming events
                 </a>
@@ -212,11 +215,12 @@ export default function Home() {
               <ResponsiveImage 
                 src="/assets/JustBuild.webp" 
                 alt="JustBuild community and events showcase"
-                width={1200}
-                height={800}
+                width={800}
+                height={600}
                 loading="lazy"
-                className="rounded-2xl shadow-2xl w-full h-auto object-cover max-w-4xl"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                className="rounded-2xl shadow-2xl w-full h-auto object-cover max-w-2xl"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 800px"
+                quality={100}
                 imageType="showcase"
               />
             </div>
@@ -225,25 +229,32 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="pt-16 pb-16 bg-gray-50">
+      <section className="pt-16 pb-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-32">
-          <div 
-            className="cursor-pointer flex justify-between items-center p-6 bg-white rounded-lg mb-4 shadow-md hover:bg-gray-50 transition-colors"
-            onClick={() => setFaqOpen(!faqOpen)}
-          >
-            <h2 className="text-2xl font-semibold">Frequently Asked Questions</h2>
-            <div className={`w-8 h-8 flex items-center justify-center bg-bridge-500 text-white rounded-full transition-transform ${faqOpen ? 'rotate-180' : ''}`}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-          </div>
+          <h2 className="text-3xl font-semibold text-center mb-8">Frequently Asked Questions</h2>
           
-          <div className={`space-y-4 transition-all duration-400 ${faqOpen ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+          <div className="space-y-4">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 shadow-md">
-                <h3 className="font-semibold text-lg mb-3 text-gray-800">{faq.question}</h3>
-                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+              <div key={index} className="bg-tertiary rounded-lg shadow-md">
+                <div 
+                  className="cursor-pointer flex justify-between items-center p-6 hover:bg-gray-100 transition-colors rounded-lg"
+                  onClick={() => {
+                    const newStates = [...faqOpenStates];
+                    newStates[index] = !newStates[index];
+                    setFaqOpenStates(newStates);
+                  }}
+                >
+                  <h3 className="font-semibold text-lg text-gray-800">{faq.question}</h3>
+                  <div className={`w-6 h-6 flex items-center justify-center bg-bridge-500 text-white rounded-full transition-transform ${faqOpenStates[index] ? 'rotate-180' : ''}`}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
+                
+                <div className={`transition-all duration-300 ${faqOpenStates[index] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                  <p className="px-6 pb-6 text-gray-600 leading-relaxed">{faq.answer}</p>
+                </div>
               </div>
             ))}
           </div>

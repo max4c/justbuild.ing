@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -49,6 +50,22 @@ export default function Header() {
 
       {/* Desktop Navigation - Split layout */}
       <div className="hidden md:block">
+        {/* Utah Scrolling Banner - Full Width Behind Nav */}
+        <div className="absolute top-12 left-0 right-0 w-full z-30 overflow-hidden">
+          <div className="h-8 flex items-center relative overflow-hidden">
+            <div className="animate-scroll-right flex whitespace-nowrap">
+              {[...Array(40)].map((_, i) => (
+                <React.Fragment key={i}>
+                  <span className="text-2xl font-black text-bridge-500 opacity-20 mx-4">
+                    {i % 2 === 0 ? 'UTAH' : 'SF'}
+                  </span>
+                  <span className="text-2xl font-black text-bridge-500 opacity-20">·</span>
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* Left Navigation with Stats */}
         <div className="absolute top-6 left-8 z-50 bg-white/95 backdrop-blur-lg rounded-xl px-6 py-3 shadow-lg">
           <nav className="flex items-center gap-6 h-14">

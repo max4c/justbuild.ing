@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function Footer() {
   return (
     <>
-      <footer className="bg-gray-50">
+      <footer className="bg-tertiary">
         <div className="max-w-7xl mx-auto px-6 lg:px-32 py-8">
           <div className="text-center mb-8">
             <a 
@@ -17,8 +17,8 @@ export default function Footer() {
             </a>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8 py-8">
-            <div>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8 py-8">
+            <div className="col-span-2">
               <Link href="/" className="flex items-center gap-2 mb-4">
                 <Image 
                   src="/assets/wordmark.png" 
@@ -28,7 +28,7 @@ export default function Footer() {
                   className="h-10 w-auto object-contain"
                 />
               </Link>
-              <p className="text-gray-600 whitespace-nowrap">Connecting Silicon Valley to Silicon Slopes</p>
+              <p className="text-gray-600">Connecting Silicon Valley to Silicon Slopes</p>
             </div>
             
             <div>
@@ -76,8 +76,10 @@ export default function Footer() {
                   </a>
                 </li>
               </ul>
-              
-              <h4 className="font-semibold mt-6 mb-4">Follow</h4>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-4">Follow</h4>
               <ul className="space-y-2">
                 <li>
                   <a 
@@ -104,16 +106,6 @@ export default function Footer() {
           </div>
         </div>
       </footer>
-      
-      {/* Massive JustBuild text */}
-      <div className="bg-gray-50">
-        <Link href="/" className="block no-underline">
-          <div className="text-4xl sm:text-6xl md:text-8xl lg:text-[12rem] font-black text-bridge-500 text-center md:text-right leading-[0.8] tracking-tighter py-4 px-4 md:py-8 md:px-8 hover:opacity-90 transition-opacity">
-            JustBuild
-          </div>
-        </Link>
-      </div>
-      
     </>
   );
 }

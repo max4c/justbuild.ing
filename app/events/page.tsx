@@ -19,6 +19,23 @@ interface Event {
 
 const events: Event[] = [
   {
+    title: "Agent Hackathon",
+    goal: "Build AI agents to solve real-world problems.",
+    date: "August 16, 2025",
+    attendees: 65,
+    prizes: "$5K",
+    sponsors: [
+      { name: "Redo", logo: "/assets/sponsors/redo.png", url: "https://www.getredo.com/en" },
+      { name: "Windsurf", logo: "/assets/sponsors/windsurf-black-wordmark.svg", url: "https://windsurf.com/" },
+      { name: "Mastra", logo: "/assets/sponsors/mastra.png", url: "https://mastra.ai/" }
+    ],
+    winners: [
+      { position: "1st", name: "Ben Woodward", nameLink: "https://www.linkedin.com/in/woodward-ben/", project: "AI agent that auto-schedules doctor appointments across multiple offices (inspired by grandpa with dementia)" },
+      { position: "2nd", name: "Josh Gimenez", nameLink: "https://www.linkedin.com/in/josh-gimenes/", project: "Phone agent that controls devices via voice - navigated Hinge and took selfie autonomously" },
+      { position: "3rd", name: "Jazzi Brensan, Zach Martim, David Pineda", nameLink: "https://www.linkedin.com/in/jazzi-brensan/", project: "Product Pre-launch: AI agents simulating customer personas to predict product launch success" }
+    ]
+  },
+  {
     title: "May Revenue Race",
     goal: "Build and ship a product that earns real revenue in one month.",
     date: "May 3 – 31, 2025",
@@ -110,21 +127,10 @@ const events: Event[] = [
 export default function EventsPage() {
   return (
     <>
-      {/* Hero Section with Background */}
-      <section className="relative min-h-screen pt-32 pb-16">
-        <div className="absolute inset-0 z-0">
-          <ResponsiveImage
-            src="/assets/events.webp"
-            alt="Utah landscape showcasing past events and community building"
-            fill
-            loading="lazy"
-            className="object-cover object-top"
-            sizes="100vw"
-            imageType="background"
-          />
-        </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-32">
-          <h1 className="text-6xl font-semibold text-white text-center mb-12">
+      {/* Hero Section */}
+      <section className="bg-tertiary pt-32 pb-16">
+        <div className="max-w-7xl mx-auto px-6 lg:px-32">
+          <h1 className="text-6xl font-semibold text-gray-900 text-center mb-12">
             Past Events
           </h1>
           
@@ -141,21 +147,24 @@ export default function EventsPage() {
                     </div>
                     
                     <div className="flex items-center gap-3">
-                      {event.sponsors.map((sponsor, idx) => (
-                        <a key={idx} href={sponsor.url} target="_blank" rel="noopener noreferrer">
-                          <Image 
-                            src={sponsor.logo} 
-                            alt={sponsor.name}
-                            width={60}
-                            height={26}
-                            loading="lazy"
-                            className="h-[26px] w-auto object-contain grayscale-[0.3] hover:grayscale-0 transition-all"
-                          />
-                        </a>
-                      ))}
+                      {event.sponsors.map((sponsor, idx) => {
+                        const isLargerLogo = ['Windsurf', 'Mastra', 'Buster', 'Remi'].includes(sponsor.name);
+                        return (
+                          <a key={idx} href={sponsor.url} target="_blank" rel="noopener noreferrer">
+                            <Image 
+                              src={sponsor.logo} 
+                              alt={sponsor.name}
+                              width={isLargerLogo ? 80 : 60}
+                              height={isLargerLogo ? 35 : 26}
+                              loading="lazy"
+                              className={`${isLargerLogo ? 'h-[35px]' : 'h-[26px]'} w-auto object-contain grayscale-[0.3] hover:grayscale-0 transition-all`}
+                            />
+                          </a>
+                        );
+                      })}
                     </div>
                     
-                    <div className="bg-gray-50 px-2 py-1 rounded">
+                    <div className="bg-tertiary px-2 py-1 rounded">
                       <div className="flex gap-2 items-center text-xs">
                         <div className="text-center">
                           <span className="block text-sm font-bold text-bridge-500">{event.attendees}</span>

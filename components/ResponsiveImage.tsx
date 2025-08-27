@@ -45,7 +45,7 @@ export default function ResponsiveImage({
   width,
   height,
   sizes = '100vw',
-  quality = 75,
+  quality = 100,
   imageType = 'background',
   ...props
 }: ResponsiveImageProps) {

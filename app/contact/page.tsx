@@ -37,29 +37,18 @@ const founders: Founder[] = [
 
 export default function ContactPage() {
   return (
-    <>
-      {/* Contact Section with Background */}
-      <section className="relative min-h-screen pt-32 md:pt-48 pb-16">
-        <div className="absolute inset-0 z-0">
-          <ResponsiveImage
-            src="/assets/bridge.webp"
-            alt="Bridge connecting Silicon Valley to Silicon Slopes"
-            fill
-            loading="lazy"
-            className="object-cover object-center"
-            sizes="100vw"
-            imageType="background"
-          />
-        </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-32">
-          <h1 className="text-6xl font-semibold text-white text-center mb-8 md:mb-12">
+    <div className="bg-tertiary min-h-screen">
+      {/* Contact Section */}
+      <section className="pt-32 md:pt-48 pb-8">
+        <div className="max-w-7xl mx-auto px-6 lg:px-32">
+          <h1 className="text-6xl font-semibold text-gray-900 text-center mb-8 md:mb-12">
             Contact Us
           </h1>
           
           {/* Founders Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto mb-12">
             {founders.map((founder, index) => (
-              <div key={index} className="bg-white rounded-2xl p-6 md:p-8 text-center shadow-xl hover:-translate-y-1 transition-transform">
+              <div key={index} className="bg-white rounded-2xl p-6 md:p-8 text-center shadow-lg hover:-translate-y-1 transition-transform">
                 <div className="mb-6">
                   <a href={founder.links.twitter} target="_blank" rel="noopener noreferrer">
                     <Image 
@@ -79,7 +68,7 @@ export default function ContactPage() {
                       href={founder.links.linkedin} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="px-3 py-2 md:px-4 bg-gray-100 rounded-lg text-gray-700 font-medium text-sm md:text-base hover:bg-bridge-500 hover:text-white hover:-translate-y-0.5 transition-all"
+                      className="px-3 py-2 md:px-4 bg-tertiary rounded-lg text-gray-900 font-medium text-sm md:text-base hover:bg-gray-200 hover:-translate-y-0.5 transition-all"
                     >
                       LinkedIn
                     </a>
@@ -89,7 +78,7 @@ export default function ContactPage() {
                       href={founder.links.twitter} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="px-3 py-2 md:px-4 bg-gray-100 rounded-lg text-gray-700 font-medium text-sm md:text-base hover:bg-bridge-500 hover:text-white hover:-translate-y-0.5 transition-all"
+                      className="px-3 py-2 md:px-4 bg-tertiary rounded-lg text-gray-900 font-medium text-sm md:text-base hover:bg-gray-200 hover:-translate-y-0.5 transition-all"
                     >
                       X (Twitter)
                     </a>
@@ -99,7 +88,7 @@ export default function ContactPage() {
                       href={founder.links.website} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="px-3 py-2 md:px-4 bg-gray-100 rounded-lg text-gray-700 font-medium text-sm md:text-base hover:bg-bridge-500 hover:text-white hover:-translate-y-0.5 transition-all"
+                      className="px-3 py-2 md:px-4 bg-tertiary rounded-lg text-gray-900 font-medium text-sm md:text-base hover:bg-gray-200 hover:-translate-y-0.5 transition-all"
                     >
                       Website
                     </a>
@@ -110,7 +99,7 @@ export default function ContactPage() {
           </div>
           
           {/* Contact Methods */}
-          <div className="bg-gray-50 rounded-2xl p-8 text-center max-w-2xl mx-auto">
+          <div className="p-8 text-center max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Get In Touch</h3>
             <a 
               href="mailto:hello@justbuild.ing" 
@@ -119,7 +108,7 @@ export default function ContactPage() {
               hello@justbuild.ing
             </a>
             
-            <div className="bg-red-50 border border-bridge-500 rounded-lg p-4 mt-4">
+            <div className="border border-bridge-500 rounded-lg p-4 mt-4">
               <p className="text-gray-600 text-sm">
                 We respond to DMs much faster on X(Twitter). Feel free to reach out to us directly there for quicker responses.
               </p>
@@ -127,6 +116,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
