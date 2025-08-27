@@ -31,7 +31,7 @@ const events: Event[] = [
     ],
     winners: [
       { position: "1st", name: "Ben Woodward", nameLink: "https://www.linkedin.com/in/woodward-ben/", project: "AI agent that auto-schedules doctor appointments across multiple offices (inspired by grandpa with dementia)" },
-      { position: "2nd", name: "Josh Gimenez", nameLink: "https://www.linkedin.com/in/josh-gimenes/", project: "Phone agent that controls devices via voice - navigated Hinge and took selfie autonomously" },
+      { position: "2nd", name: "Josh Gimenez", nameLink: "https://www.linkedin.com/in/josh-gimenes/", project: "Phone agent that controls devices via text commands - navigated Hinge and took selfie autonomously" },
       { position: "3rd", name: "Jazzi Brensan, Zach Martim, David Pineda", nameLink: "https://www.linkedin.com/in/jazzi-brensan/", project: "Product Pre-launch: AI agents simulating customer personas to predict product launch success" }
     ]
   },
