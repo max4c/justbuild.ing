@@ -75,24 +75,24 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-tertiary pt-40 md:pt-32 lg:pt-24 pb-16">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
+      <section className="bg-tertiary pt-32 sm:pt-32 md:pt-40 lg:pt-40 pb-16 relative z-10">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-16">
           <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-start lg:items-center">
             {/* Content */}
-            <div className="lg:col-span-2">
-              <h1 className="text-6xl lg:text-7xl font-semibold text-gray-900 mb-4">
+            <div className="lg:col-span-2 order-2 lg:order-1 relative z-20">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-gray-900 mb-4 leading-tight">
                 JustBuild
               </h1>
-              <p className="text-xl text-gray-700 mb-8 whitespace-nowrap">
+              <p className="text-lg sm:text-xl text-gray-700 mb-8 break-words leading-relaxed">
                 Connecting Silicon Valley to Silicon Slopes
               </p>
               
-              <div className="flex flex-wrap gap-3 items-start">
+              <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-start">
                 <a 
                   href="https://lu.ma/justbuild" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-bridge-500 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-white text-bridge-500 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 text-center relative z-20"
                 >
                   See upcoming events
                 </a>
@@ -100,7 +100,7 @@ export default function Home() {
                   href="https://tinyurl.com/jb-slackinvite" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-6 py-3 bg-bridge-500 text-white font-semibold rounded-lg hover:bg-bridge-600 transition-all duration-300"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-bridge-500 text-white font-semibold rounded-lg hover:bg-bridge-600 transition-all duration-300 text-center relative z-20"
                 >
                   Join Slack
                 </a>
@@ -108,14 +108,14 @@ export default function Home() {
             </div>
             
             {/* Image */}
-            <div className="relative h-[400px] md:h-[500px] lg:h-[600px] lg:col-span-3 mt-8 lg:mt-20">
+            <div className="relative h-[300px] sm:h-[400px] md:h-[450px] lg:h-[600px] lg:col-span-3 order-1 lg:order-2 lg:mt-0 z-10">
               <Image
                 src="/assets/bridge.webp"
                 alt="Bridge connecting Silicon Valley to Silicon Slopes"
                 fill
                 priority
                 className="object-cover object-center rounded-2xl"
-                sizes="(max-width: 768px) 100vw, 66vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 66vw"
                 quality={100}
               />
             </div>

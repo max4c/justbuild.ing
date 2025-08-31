@@ -21,7 +21,7 @@ const events: Event[] = [
   {
     title: "Agent Hackathon",
     goal: "Build AI agents to solve real-world problems.",
-    date: "August 16, 2025",
+    date: "August 16 2025",
     attendees: 65,
     prizes: "$5K",
     sponsors: [
@@ -38,7 +38,7 @@ const events: Event[] = [
   {
     title: "May Revenue Race",
     goal: "Build and ship a product that earns real revenue in one month.",
-    date: "May 3 – 31, 2025",
+    date: "May 3 – 31 2025",
     attendees: 40,
     prizes: "$50K",
     sponsors: [
@@ -57,7 +57,7 @@ const events: Event[] = [
   {
     title: "Manus Meetup Provo",
     goal: "Find the best or most innovative use case for Manus AI.",
-    date: "May 29, 2025",
+    date: "May 29 2025",
     attendees: 78,
     prizes: "$50K",
     sponsors: [
@@ -73,7 +73,7 @@ const events: Event[] = [
   {
     title: "Multi-Modal AI Hackathon",
     goal: "Build with audio, image, video, and text AI models.",
-    date: "March 8, 2025",
+    date: "March 8 2025",
     attendees: 44,
     prizes: "$1K",
     sponsors: [
@@ -90,7 +90,7 @@ const events: Event[] = [
   {
     title: "Utah Tech Week's Shortest Hackathon",
     goal: "2-hour hackathon. Build, demo, win.",
-    date: "January 29, 2025",
+    date: "January 29 2025",
     attendees: 65,
     prizes: "$4K",
     sponsors: [
@@ -106,7 +106,7 @@ const events: Event[] = [
   {
     title: "JustBuild Kickoff Hackathon",
     goal: "24-hour hackathon. Kickoff event.",
-    date: "December 6, 2024",
+    date: "December 6 2024",
     attendees: 39,
     prizes: "$3K",
     sponsors: [
@@ -128,56 +128,59 @@ export default function EventsPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-tertiary pt-32 pb-16">
-        <div className="max-w-7xl mx-auto px-6 lg:px-32">
+      <section className="bg-tertiary pt-32 sm:pt-32 md:pt-40 lg:pt-40 pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-32">
           <h1 className="text-6xl font-semibold text-gray-900 text-center mb-12">
             Past Events
           </h1>
           
           <div className="space-y-6">
             {events.map((event, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow">
+              <div key={index} className="bg-white rounded-lg p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow">
                 {/* Event Header */}
                 <div className="mb-4">
-                  {/* Single row: Title, Description, Sponsors, Date, Stats */}
-                  <div className="flex flex-wrap items-center gap-4">
+                  {/* Mobile: Stack vertically, Desktop: Single row */}
+                  <div className="flex flex-col lg:flex-row lg:items-center gap-4">
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-xl font-bold text-gray-900 mb-1">{event.title}</h3>
-                      <p className="text-sm text-gray-600 italic">{event.goal}</p>
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1">{event.title}</h3>
+                      <p className="text-sm text-gray-600 italic leading-relaxed">{event.goal}</p>
                     </div>
                     
-                    <div className="flex items-center gap-3">
-                      {event.sponsors.map((sponsor, idx) => {
-                        const isLargerLogo = ['Windsurf', 'Mastra', 'Buster', 'Remi'].includes(sponsor.name);
-                        return (
-                          <a key={idx} href={sponsor.url} target="_blank" rel="noopener noreferrer">
-                            <Image 
-                              src={sponsor.logo} 
-                              alt={sponsor.name}
-                              width={isLargerLogo ? 80 : 60}
-                              height={isLargerLogo ? 35 : 26}
-                              loading="lazy"
-                              className={`${isLargerLogo ? 'h-[35px]' : 'h-[26px]'} w-auto object-contain grayscale-[0.3] hover:grayscale-0 transition-all`}
-                            />
-                          </a>
-                        );
-                      })}
-                    </div>
-                    
-                    <div className="bg-tertiary px-2 py-1 rounded">
-                      <div className="flex gap-2 items-center text-xs">
-                        <div className="text-center">
-                          <span className="block text-sm font-bold text-bridge-500">{event.attendees}</span>
-                          <span className="text-xs uppercase text-gray-600">Builders</span>
-                        </div>
-                        <div className="w-px h-4 bg-gray-300"></div>
-                        <div className="text-center">
-                          <span className="block text-sm font-bold text-bridge-500">{event.prizes}</span>
-                          <span className="text-xs uppercase text-gray-600">In Prizes</span>
-                        </div>
-                        <div className="w-px h-4 bg-gray-300"></div>
-                        <div className="text-center">
-                          <span className="block text-xs font-medium text-gray-600">{event.date}</span>
+                    {/* Mobile: Stack sponsors and stats */}
+                    <div className="flex flex-col sm:flex-row gap-4 lg:flex-row lg:items-center">
+                      <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+                        {event.sponsors.map((sponsor, idx) => {
+                          const isLargerLogo = ['Windsurf', 'Mastra', 'Buster', 'Remi'].includes(sponsor.name);
+                          return (
+                            <a key={idx} href={sponsor.url} target="_blank" rel="noopener noreferrer">
+                              <Image 
+                                src={sponsor.logo} 
+                                alt={sponsor.name}
+                                width={isLargerLogo ? 70 : 50}
+                                height={isLargerLogo ? 30 : 22}
+                                loading="lazy"
+                                className={`${isLargerLogo ? 'h-[30px]' : 'h-[22px]'} w-auto object-contain grayscale-[0.3] hover:grayscale-0 transition-all`}
+                              />
+                            </a>
+                          );
+                        })}
+                      </div>
+                      
+                      <div className="bg-tertiary px-3 py-2 rounded-lg">
+                        <div className="flex items-center text-xs">
+                          <div className="text-center flex-1">
+                            <span className="block text-sm font-bold text-bridge-500">{event.attendees}</span>
+                            <span className="text-xs uppercase text-gray-600">Builders</span>
+                          </div>
+                          <div className="w-px h-4 bg-gray-300 mx-2"></div>
+                          <div className="text-center flex-1">
+                            <span className="block text-sm font-bold text-bridge-500">{event.prizes}</span>
+                            <span className="text-xs uppercase text-gray-600">In Prizes</span>
+                          </div>
+                          <div className="w-px h-4 bg-gray-300 mx-2"></div>
+                          <div className="text-center flex-1">
+                            <span className="block text-sm font-medium text-gray-600">{event.date}</span>
+                          </div>
                         </div>
                       </div>
                     </div>
