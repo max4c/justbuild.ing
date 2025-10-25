@@ -92,7 +92,7 @@ export default function Header() {
             <div className="w-px h-6 bg-gray-300 ml-4"></div>
             <div className="flex items-center gap-4 ml-4 text-gray-500">
               <div className="text-center">
-                <span className="block text-sm font-semibold">250+</span>
+                <span className="block text-sm font-semibold">300+</span>
                 <span className="text-xs uppercase tracking-wider">builders</span>
               </div>
               <div className="w-px h-4 bg-gray-300"></div>

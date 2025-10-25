@@ -12,12 +12,45 @@ interface Event {
     position?: string;
     name: string;
     nameLink?: string;
+    additionalNames?: string;
     project: string;
     projectLink?: string;
   }>;
 }
 
+const parsePrizeToNumber = (value: string): number => {
+  const cleaned = value.replace(/[\s$,]/g, '').toUpperCase();
+  if (cleaned.endsWith('K')) {
+    return parseFloat(cleaned.slice(0, -1)) * 1_000;
+  }
+  if (cleaned.endsWith('M')) {
+    return parseFloat(cleaned.slice(0, -1)) * 1_000_000;
+  }
+  const numeric = parseFloat(cleaned);
+  return Number.isNaN(numeric) ? 0 : numeric;
+};
+
 const events: Event[] = [
+  {
+    title: "Crimson Hacks",
+    goal: "University of Utah's largest hackathon with a Mission to Mars theme.",
+    date: "October 24 2025",
+    attendees: 120,
+    prizes: "$2K",
+    sponsors: [
+      { name: "Redo", logo: "/assets/sponsors/redo.png", url: "https://www.getredo.com/en" },
+      { name: "RunPod", logo: "/assets/sponsors/runpod.svg", url: "https://runpod.io/" }
+    ],
+    winners: [
+      { position: "Best Overall", name: "Team Rover-Q", project: "Full-stack app demonstrating Q-learning to solve mazes" },
+      { position: "Best Technical Implementation", name: "Josh Gimenez", project: "Built Marvis, a camera HUD that performs object detection, displays components on screen, and can be created and updated with voice commands" },
+      { position: "Best Game", name: "Team Jim's Angels", project: "Catstronaut, a video game where a cat solves LeetCode problems" },
+      { position: "Best UX/UI", name: "Team The Unemployed", project: "Hand-drawn interface paired with an original soundtrack and storyline" },
+      { position: "Best Use of AI/ML", name: "Team Weather Predictions", project: "Binary classification model on NASA Mars rover imagery to predict clear weather" },
+      { position: "Most Ambitious Concept", name: "Team Utah Robotics", project: "Depth-camera powered KNN surface reconstruction tested in Unity for rocket landings" },
+      { position: "Funniest/Wildest", name: "Team MarsCam", project: "Camera filters and backgrounds transforming participants into aliens with space accessories" }
+    ]
+  },
   {
     title: "Agent Hackathon",
     goal: "Build AI agents to solve real-world problems.",
@@ -30,9 +63,9 @@ const events: Event[] = [
       { name: "Mastra", logo: "/assets/sponsors/mastra.png", url: "https://mastra.ai/" }
     ],
     winners: [
-      { position: "1st", name: "Ben Woodward", nameLink: "https://www.linkedin.com/in/woodward-ben/", project: "AI agent that auto-schedules doctor appointments across multiple offices (inspired by grandpa with dementia)" },
-      { position: "2nd", name: "Josh Gimenez", nameLink: "https://www.linkedin.com/in/josh-gimenes/", project: "Phone agent that controls devices via text commands - navigated Hinge and took selfie autonomously" },
-      { position: "3rd", name: "Jazzi Brensan, Zach Martim, David Pineda", nameLink: "https://www.linkedin.com/in/jazzi-brensan/", project: "Product Pre-launch: AI agents simulating customer personas to predict product launch success" }
+      { position: "1st", name: "Ben Woodward", project: "AI agent that auto-schedules doctor appointments across multiple offices (inspired by grandpa with dementia)" },
+      { position: "2nd", name: "Josh Gimenez", project: "Phone agent that controls devices via text commands - navigated Hinge and took selfie autonomously" },
+      { position: "3rd", name: "Jazzi Brensan", nameLink: "https://www.linkedin.com/in/jazzi-brensan/", additionalNames: ", Zach Martim, David Pineda", project: "Product Pre-launch: AI agents simulating customer personas to predict product launch success" }
     ]
   },
   {
@@ -124,6 +157,14 @@ const events: Event[] = [
   }
 ];
 
+const totalBuilders = events.reduce((sum, event) => sum + event.attendees, 0);
+const totalPrizeMoney = events.reduce((sum, event) => sum + parsePrizeToNumber(event.prizes), 0);
+const formattedTotalPrizeMoney = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  maximumFractionDigits: 0
+}).format(totalPrizeMoney);
+
 export default function EventsPage() {
   return (
     <>
@@ -196,10 +237,13 @@ export default function EventsPage() {
                         <span className="font-semibold text-bridge-500">
                           {winner.position && `${winner.position}: `}
                           {winner.nameLink ? (
-                            <a href={winner.nameLink} target="_blank" rel="noopener noreferrer" 
-                               className="hover:underline">
-                              {winner.name}
-                            </a>
+                            <>
+                              <a href={winner.nameLink} target="_blank" rel="noopener noreferrer" 
+                                 className="hover:underline">
+                                {winner.name}
+                              </a>
+                              {winner.additionalNames && <span>{winner.additionalNames}</span>}
+                            </>
                           ) : winner.name}
                         </span>
                         <span className="text-gray-600 ml-2">
