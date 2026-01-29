@@ -11,12 +11,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "JustBuild - Connecting Silicon Valley to Silicon Slopes",
+  title: "JustBuild - Make Utah AI-Native",
   description: "JustBuild connects Utah founders, engineers, and builders through hackathons, community events, and AI-native initiatives.",
   keywords: "hackathon, Utah tech, Silicon Slopes, AI, community, builders",
   openGraph: {
     title: "JustBuild",
-    description: "Connecting Silicon Valley to Silicon Slopes",
+    description: "Make Utah AI-Native",
     url: "https://justbuild.ing",
     siteName: "JustBuild",
     images: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "JustBuild",
-    description: "Connecting Silicon Valley to Silicon Slopes",
+    description: "Make Utah AI-Native",
     images: ["/assets/JustBuild.png"],
   },
 };

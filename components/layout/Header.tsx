@@ -57,7 +57,7 @@ export default function Header() {
               {[...Array(40)].map((_, i) => (
                 <React.Fragment key={i}>
                   <span className="text-2xl font-black text-bridge-500 opacity-20 mx-4">
-                    {i % 2 === 0 ? 'UTAH' : 'SF'}
+                    {i % 2 === 0 ? 'UTAH' : 'AI'}
                   </span>
                   <span className="text-2xl font-black text-bridge-500 opacity-20">·</span>
                 </React.Fragment>

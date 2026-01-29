@@ -28,7 +28,7 @@ export default function Footer() {
                   className="h-10 w-auto object-contain"
                 />
               </Link>
-              <p className="text-gray-600">Connecting Silicon Valley to Silicon Slopes</p>
+              <p className="text-gray-600">Make Utah AI-Native</p>
             </div>
             
             <div>

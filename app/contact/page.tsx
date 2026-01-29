@@ -26,7 +26,7 @@ const founders: Founder[] = [
   {
     name: "Max Forsey",
     role: "Co-founder", 
-    image: "/assets/max.jpg",
+    image: "/assets/max.jpeg",
     links: {
       linkedin: "https://www.linkedin.com/in/max-forsey/",
       twitter: "https://x.com/max4c_",

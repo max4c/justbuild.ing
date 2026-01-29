@@ -26,4 +26,29 @@
   .hero-gradient {
     background: linear-gradient(180deg, rgba(0,0,0,.28), rgba(0,0,0,.12) 40%, rgba(0,0,0,0) 70%);
   }
+
+  .ai-native-gradient {
+    background: linear-gradient(
+      135deg,
+      #c84343 0%,
+      #e85d5d 25%,
+      #c84343 50%,
+      #a63636 75%,
+      #c84343 100%
+    );
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 3s ease-in-out infinite;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
 }

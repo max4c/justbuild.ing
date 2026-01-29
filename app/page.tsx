@@ -83,8 +83,9 @@ export default function Home() {
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-gray-900 mb-4 leading-tight">
                 JustBuild
               </h1>
-              <p className="text-lg sm:text-xl text-gray-700 mb-8 break-words leading-relaxed">
-                Connecting Silicon Valley to Silicon Slopes
+              <p className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-8 break-words leading-tight tracking-tight">
+                <span className="text-gray-900">Make Utah </span>
+                <span className="ai-native-gradient">AI-Native</span>
               </p>
               
               <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-start">
@@ -111,7 +112,7 @@ export default function Home() {
             <div className="relative h-[300px] sm:h-[400px] md:h-[450px] lg:h-[600px] lg:col-span-3 order-1 lg:order-2 lg:mt-0 z-10">
               <Image
                 src="/assets/bridge.webp"
-                alt="Bridge connecting Silicon Valley to Silicon Slopes"
+                alt="Bridge connecting communities"
                 fill
                 priority
                 className="object-cover object-center rounded-2xl"
