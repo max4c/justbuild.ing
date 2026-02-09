@@ -21,7 +21,6 @@ const sponsors = [
   { name: 'Castari', logo: '/assets/sponsors/castari.svg', url: 'https://castari.com/' },
   { name: 'Mindsmith', logo: '/assets/sponsors/mindsmith.svg', url: 'https://mindsmith.ai/' },
   { name: 'Surge', logo: '/assets/sponsors/surge.svg', url: 'https://surge.app/' },
-  { name: 'Convoi Ventures', logo: '/assets/sponsors/convoi.svg', url: 'https://convoiventures.com/' },
 ];
 
 const faqs = [

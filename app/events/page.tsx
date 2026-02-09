@@ -40,8 +40,7 @@ const events: Event[] = [
     sponsors: [
       { name: "Castari", logo: "/assets/sponsors/castari.svg", url: "https://castari.com/" },
       { name: "Mindsmith", logo: "/assets/sponsors/mindsmith.svg", url: "https://mindsmith.ai/" },
-      { name: "Surge", logo: "/assets/sponsors/surge.svg", url: "https://surge.app/" },
-      { name: "Convoi Ventures", logo: "/assets/sponsors/convoi.svg", url: "https://convoiventures.com/" }
+      { name: "Surge", logo: "/assets/sponsors/surge.svg", url: "https://surge.app/" }
     ],
     winners: [
       { position: "1st ($1K)", name: "Danny Graviet", project: "Helix" },
@@ -211,7 +210,7 @@ export default function EventsPage() {
                     <div className="flex flex-col sm:flex-row gap-4 lg:flex-row lg:items-center">
                       <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
                         {event.sponsors.map((sponsor, idx) => {
-                          const isLargerLogo = ['Windsurf', 'Mastra', 'Buster', 'Remi'].includes(sponsor.name);
+                          const isLargerLogo = ['Windsurf', 'Mastra', 'Buster', 'Remi', 'Castari', 'Mindsmith', 'Surge'].includes(sponsor.name);
                           return (
                             <a key={idx} href={sponsor.url} target="_blank" rel="noopener noreferrer">
                               <Image 
