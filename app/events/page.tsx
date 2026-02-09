@@ -32,6 +32,26 @@ const parsePrizeToNumber = (value: string): number => {
 
 const events: Event[] = [
   {
+    title: "AI Agents Hackathon",
+    goal: "Build agentic systems or products that enable autonomous work.",
+    date: "February 8 2026",
+    attendees: 150,
+    prizes: "$3K",
+    sponsors: [
+      { name: "Castari", logo: "/assets/sponsors/castari.svg", url: "https://castari.com/" },
+      { name: "Mindsmith", logo: "/assets/sponsors/mindsmith.svg", url: "https://mindsmith.ai/" },
+      { name: "Surge", logo: "/assets/sponsors/surge.svg", url: "https://surge.app/" },
+      { name: "Convoi Ventures", logo: "/assets/sponsors/convoi.svg", url: "https://convoiventures.com/" }
+    ],
+    winners: [
+      { position: "1st ($1K)", name: "Danny Graviet", project: "Helix" },
+      { position: "2nd ($600)", name: "Ammon Kunzler", project: "Truffles" },
+      { position: "3rd ($400)", name: "Anurup Kumar, Minh Le, Kunj Rathod", project: "Min0" },
+      { position: "Surge Prize ($500)", name: "Jake Nef, Hayden Peterson, Luke Woods", project: "tripmaster" },
+      { position: "Mindsmith Prize ($500)", name: "David Gardner, Piyush Hinduja, Miles Spencer, Jonathan Wagstaff", project: "Fortune Favors the Bold" }
+    ]
+  },
+  {
     title: "Crimson Hacks",
     goal: "University of Utah's largest hackathon with a Mission to Mars theme.",
     date: "October 24 2025",

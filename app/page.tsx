@@ -18,6 +18,10 @@ const sponsors = [
   { name: 'Cerebras', logo: '/assets/sponsors/cerebras.png', url: 'https://www.cerebras.ai/' },
   { name: 'Cartwheel', logo: '/assets/sponsors/cartwheel.svg', url: 'https://getcartwheel.com/' },
   { name: 'Buster', logo: '/assets/sponsors/buster.png', url: 'https://www.buster.so/' },
+  { name: 'Castari', logo: '/assets/sponsors/castari.svg', url: 'https://castari.com/' },
+  { name: 'Mindsmith', logo: '/assets/sponsors/mindsmith.svg', url: 'https://mindsmith.ai/' },
+  { name: 'Surge', logo: '/assets/sponsors/surge.svg', url: 'https://surge.app/' },
+  { name: 'Convoi Ventures', logo: '/assets/sponsors/convoi.svg', url: 'https://convoiventures.com/' },
 ];
 
 const faqs = [
@@ -129,7 +133,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-32">
         <h2 className="text-3xl font-semibold text-center mb-8">Trusted by</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1">
-          {sponsors.slice(0, 8).map((sponsor) => (
+          {sponsors.slice(0, 10).map((sponsor) => (
             <div key={sponsor.name} className="flex justify-center items-center bg-tertiary rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 h-20">
               <a href={sponsor.url} target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center">
                 <Image 
@@ -144,7 +148,7 @@ export default function Home() {
               </a>
             </div>
           ))}
-          {sponsors.slice(8).map((sponsor) => (
+          {sponsors.slice(10).map((sponsor) => (
             <div key={sponsor.name} className="flex justify-center items-center bg-tertiary rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 h-20">
               <a href={sponsor.url} target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center">
                 <Image 
