@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import CopyCard from '@/components/ui/CopyCard';
 export const metadata: Metadata = {
   title: "Brand - JustBuild",
   description: "JustBuild brand guidelines, logos, and press assets.",
@@ -39,13 +40,28 @@ export default function BrandPage() {
         </div>
       </section>
 
+      {/* About */}
+      <section className="py-14 border-b border-gray-100">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-2xl font-semibold text-gray-900 mb-6">About</h2>
+
+          <div className="space-y-3">
+            <CopyCard
+              label="One-liner"
+              text="JustBuild is Utah's AI-native builder community."
+            />
+            <CopyCard
+              label="Short description"
+              text="JustBuild is Utah's AI-native builder community. We bring together founders, engineers, designers, PMs, and curious builders to learn fast, build real things, and grow the local startup ecosystem. Through hackathons, coworking sessions, and hands-on events, JustBuild helps people meet collaborators, sharpen their skills, and ship real projects. The community is led by Max Forsey and Jacob Wright."
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Logo */}
       <section className="py-14 border-b border-gray-100">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-1">Logo</h2>
-          <p className="text-sm text-gray-500 mb-8">
-            Bridge mark. Favicons, avatars, social profiles. All transparent.
-          </p>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-8">Logo</h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {/* Standard */}
@@ -96,41 +112,47 @@ export default function BrandPage() {
       {/* Wordmark */}
       <section className="py-14 border-b border-gray-100">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-1">Wordmark</h2>
-          <p className="text-sm text-gray-500 mb-8">
-            Horizontal lockup. Bridge mark + &ldquo;JustBuild&rdquo; in Libre Baskerville. All transparent.
-          </p>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-8">Wordmark</h2>
 
-          <div className="space-y-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {/* Standard */}
             <div className="rounded-xl overflow-hidden border border-gray-100">
-              <div className="bg-white px-8 py-4 flex items-center justify-center">
-                <Image src="/assets/brand/wordmark-standard.png" alt="Wordmark standard" width={800} height={160} className="w-full max-w-md h-auto" />
+              <div className="bg-white p-6 flex items-center justify-center h-32">
+                <Image src="/assets/brand/wordmark-standard.png" alt="Wordmark standard" width={800} height={160} className="w-full h-auto px-1" />
               </div>
               <div className="px-4 py-3 flex items-center justify-between bg-white border-t border-gray-100">
-                <p className="text-sm font-medium text-gray-900">Standard</p>
+                <div>
+                  <p className="text-sm font-medium text-gray-900">Standard</p>
+                  <p className="text-xs text-gray-400">Red</p>
+                </div>
                 <DownloadButton href="/assets/brand/wordmark-standard.png" />
               </div>
             </div>
 
             {/* Black */}
             <div className="rounded-xl overflow-hidden border border-gray-100">
-              <div className="bg-white px-8 py-4 flex items-center justify-center">
-                <Image src="/assets/brand/wordmark-black.png" alt="Wordmark black" width={800} height={160} className="w-full max-w-md h-auto" />
+              <div className="bg-white p-6 flex items-center justify-center h-32">
+                <Image src="/assets/brand/wordmark-black.png" alt="Wordmark black" width={800} height={160} className="w-full h-auto px-1" />
               </div>
               <div className="px-4 py-3 flex items-center justify-between bg-white border-t border-gray-100">
-                <p className="text-sm font-medium text-gray-900">Black</p>
+                <div>
+                  <p className="text-sm font-medium text-gray-900">Black</p>
+                  <p className="text-xs text-gray-400">Monochrome</p>
+                </div>
                 <DownloadButton href="/assets/brand/wordmark-black.png" />
               </div>
             </div>
 
             {/* White */}
             <div className="rounded-xl overflow-hidden border border-gray-700 bg-gray-900">
-              <div className="px-8 py-4 flex items-center justify-center">
-                <Image src="/assets/brand/wordmark-white.png" alt="Wordmark white" width={800} height={160} className="w-full max-w-md h-auto" />
+              <div className="p-6 flex items-center justify-center h-32">
+                <Image src="/assets/brand/wordmark-white.png" alt="Wordmark white" width={800} height={160} className="w-full h-auto px-1" />
               </div>
               <div className="px-4 py-3 flex items-center justify-between border-t border-gray-700">
-                <p className="text-sm font-medium text-white">White</p>
+                <div>
+                  <p className="text-sm font-medium text-white">White</p>
+                  <p className="text-xs text-gray-500">Dark backgrounds</p>
+                </div>
                 <DownloadButton href="/assets/brand/wordmark-white.png" dark />
               </div>
             </div>
@@ -165,7 +187,7 @@ export default function BrandPage() {
                 <li>Stretch, rotate, or distort the logo</li>
                 <li>Change colors beyond provided variants</li>
                 <li>Place on busy backgrounds without contrast</li>
-                <li>Write as &ldquo;Just Build&rdquo;, &ldquo;justbuild&rdquo;, or &ldquo;JUSTBUILD&rdquo;</li>
+                <li>Write as &ldquo;Just Build&rdquo; or &ldquo;JUSTBUILD&rdquo;</li>
               </ul>
             </div>
           </div>
