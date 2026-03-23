@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -21,6 +21,16 @@ const sponsors = [
   { name: 'Castari', logo: '/assets/sponsors/castari.svg', url: 'https://castari.com/' },
   { name: 'Mindsmith', logo: '/assets/sponsors/mindsmith.svg', url: 'https://mindsmith.ai/' },
   { name: 'Surge', logo: '/assets/sponsors/surge.svg', url: 'https://surge.app/' },
+];
+
+const roles = [
+  'founders',
+  'business owners',
+  'product managers',
+  'software engineers',
+  'designers',
+  'students',
+  'professionals'
 ];
 
 const faqs = [
@@ -58,22 +68,12 @@ export default function Home() {
   const [cyclingIndex, setCyclingIndex] = useState(0);
   const [faqOpenStates, setFaqOpenStates] = useState<boolean[]>(new Array(faqs.length).fill(false));
   
-  const roles = useMemo(() => [
-    'founders',
-    'business owners',
-    'product managers',
-    'software engineers',
-    'designers',
-    'students',
-    'professionals'
-  ], []);
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCyclingIndex((prev) => (prev + 1) % roles.length);
     }, 2000);
     return () => clearInterval(interval);
-  }, [roles.length]);
+  }, []);
 
   return (
     <>
@@ -120,7 +120,6 @@ export default function Home() {
                 priority
                 className="object-cover object-center rounded-2xl"
                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 66vw"
-                quality={100}
               />
             </div>
           </div>
@@ -132,26 +131,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-32">
         <h2 className="text-3xl font-semibold text-center mb-8">Trusted by</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1">
-          {sponsors.slice(0, 10).map((sponsor) => (
+          {sponsors.map((sponsor) => (
             <div key={sponsor.name} className="flex justify-center items-center bg-tertiary rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 h-20">
               <a href={sponsor.url} target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center">
-                <Image 
-                  src={sponsor.logo} 
-                  alt={`${sponsor.name} logo`}
-                  width={120}
-                  height={60}
-                  loading="lazy"
-                  className="max-w-full max-h-full object-contain"
-                  style={{ width: "auto", height: "auto" }}
-                />
-              </a>
-            </div>
-          ))}
-          {sponsors.slice(10).map((sponsor) => (
-            <div key={sponsor.name} className="flex justify-center items-center bg-tertiary rounded-xl p-4 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 h-20">
-              <a href={sponsor.url} target="_blank" rel="noopener noreferrer" className="w-full h-full flex items-center justify-center">
-                <Image 
-                  src={sponsor.logo} 
+                <Image
+                  src={sponsor.logo}
                   alt={`${sponsor.name} logo`}
                   width={120}
                   height={60}
@@ -222,7 +206,6 @@ export default function Home() {
                 loading="lazy"
                 className="rounded-2xl shadow-2xl w-full h-auto object-cover max-w-2xl"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 800px"
-                quality={100}
               />
             </div>
           </div>
@@ -234,27 +217,31 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-32">
           <h2 className="text-3xl font-semibold text-center mb-8">Frequently Asked Questions</h2>
           
-          <div className="space-y-4">
+          <div className="space-y-2">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-tertiary rounded-lg shadow-md">
-                <div 
-                  className="cursor-pointer flex justify-between items-center p-6 hover:bg-gray-100 transition-colors rounded-lg"
+              <div key={index} className="border border-gray-200 rounded-lg">
+                <button
+                  className="w-full flex justify-between items-center p-5 hover:bg-gray-50 transition-colors rounded-lg text-left"
                   onClick={() => {
                     const newStates = [...faqOpenStates];
                     newStates[index] = !newStates[index];
                     setFaqOpenStates(newStates);
                   }}
                 >
-                  <h3 className="font-semibold text-lg text-gray-800">{faq.question}</h3>
-                  <div className={`w-6 h-6 flex items-center justify-center bg-bridge-500 text-white rounded-full transition-transform ${faqOpenStates[index] ? 'rotate-180' : ''}`}>
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                </div>
-                
+                  <h3 className="font-semibold text-base text-gray-800 pr-4">{faq.question}</h3>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className={`shrink-0 text-gray-400 transition-transform duration-300 ${faqOpenStates[index] ? 'rotate-180' : ''}`}
+                  >
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+
                 <div className={`transition-all duration-300 ${faqOpenStates[index] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-                  <p className="px-6 pb-6 text-gray-600 leading-relaxed">{faq.answer}</p>
+                  <p className="px-5 pb-5 text-gray-600 text-sm leading-relaxed">{faq.answer}</p>
                 </div>
               </div>
             ))}

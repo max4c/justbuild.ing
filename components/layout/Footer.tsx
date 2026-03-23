@@ -49,6 +49,11 @@ export default function Footer() {
                     Contact
                   </Link>
                 </li>
+                <li>
+                  <Link href="/brand" className="text-gray-600 hover:text-bridge-500 transition-colors">
+                    Brand
+                  </Link>
+                </li>
               </ul>
             </div>
             

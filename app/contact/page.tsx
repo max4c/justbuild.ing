@@ -14,6 +14,16 @@ interface Founder {
 
 const founders: Founder[] = [
   {
+    name: "Max Forsey",
+    role: "Co-founder",
+    image: "/assets/max.jpeg",
+    links: {
+      linkedin: "https://www.linkedin.com/in/max-forsey/",
+      twitter: "https://x.com/max4c_",
+      website: "https://maxforsey.com"
+    }
+  },
+  {
     name: "Jacob Wright",
     role: "Co-founder",
     image: "/assets/jacob.jpg",
@@ -21,16 +31,6 @@ const founders: Founder[] = [
       linkedin: "https://www.linkedin.com/in/jacob-c-wright/",
       twitter: "https://x.com/jehovahscript",
       website: "https://www.jacobwright.xyz/"
-    }
-  },
-  {
-    name: "Max Forsey",
-    role: "Co-founder", 
-    image: "/assets/max.jpeg",
-    links: {
-      linkedin: "https://www.linkedin.com/in/max-forsey/",
-      twitter: "https://x.com/max4c_",
-      website: "https://maxforsey.com"
     }
   }
 ];
