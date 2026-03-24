@@ -11,6 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://justbuild.ing"),
   title: "JustBuild - Make Utah AI-Native",
   description: "JustBuild connects Utah founders, engineers, and builders through hackathons, community events, and AI-native initiatives.",
   keywords: "hackathon, Utah tech, Silicon Slopes, AI, community, builders",
@@ -21,10 +22,10 @@ export const metadata: Metadata = {
     siteName: "JustBuild",
     images: [
       {
-        url: "/assets/JustBuild.png",
+        url: "/assets/og.png",
         width: 1200,
         height: 630,
-        alt: "JustBuild Community",
+        alt: "Make Utah AI-Native",
       },
     ],
     locale: "en_US",
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "JustBuild",
     description: "Make Utah AI-Native",
-    images: ["/assets/JustBuild.png"],
+    images: ["/assets/og.png"],
   },
 };
 
