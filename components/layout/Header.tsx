@@ -95,7 +95,7 @@ export default function Header() {
               </div>
               <div className="px-6 pb-4 pt-2 border-t border-gray-100">
                 <a
-                  href="https://tinyurl.com/jb-slackinvite"
+                  href="https://tinyurl.com/jbslack"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full text-center bg-bridge-500 text-white px-4 py-2.5 rounded-lg font-semibold text-sm hover:bg-bridge-600 transition-colors"
@@ -171,7 +171,7 @@ export default function Header() {
         <div className="absolute top-6 right-8 z-50 bg-white/95 backdrop-blur-lg rounded-xl px-6 py-3 shadow-lg">
           <nav className="flex items-center h-14">
             <a
-              href="https://tinyurl.com/jb-slackinvite"
+              href="https://tinyurl.com/jbslack"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-bridge-500 text-white px-4 py-2 rounded font-bold text-sm hover:bg-bridge-600 transition-colors"

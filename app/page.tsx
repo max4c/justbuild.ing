@@ -101,7 +101,7 @@ export default function Home() {
                   See upcoming events
                 </a>
                 <a 
-                  href="https://tinyurl.com/jb-slackinvite" 
+                  href="https://tinyurl.com/jbslack" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-6 py-3 bg-bridge-500 text-white font-semibold rounded-lg hover:bg-bridge-600 transition-all duration-300 text-center relative z-20"
@@ -174,7 +174,7 @@ export default function Home() {
                 <h3 className="text-xl font-semibold mb-2">Foster community</h3>
                 <p className="text-gray-600 mb-4">of sharing and building</p>
                 <a 
-                  href="https://tinyurl.com/jb-slackinvite" 
+                  href="https://tinyurl.com/jbslack" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center px-6 py-3 bg-bridge-500 text-white font-semibold rounded-lg hover:bg-bridge-600 transition-all duration-300 mt-auto"

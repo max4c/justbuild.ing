@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-6 lg:px-32 py-8">
           <div className="text-center mb-8">
             <a 
-              href="https://tinyurl.com/jb-slackinvite" 
+              href="https://tinyurl.com/jbslack" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-bridge-500 text-white font-semibold rounded-lg hover:bg-bridge-600 transition-all duration-300"
@@ -62,7 +62,7 @@ export default function Footer() {
               <ul className="space-y-2">
                 <li>
                   <a 
-                    href="https://tinyurl.com/jb-slackinvite" 
+                    href="https://tinyurl.com/jbslack" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="text-gray-600 hover:text-bridge-500 transition-colors"
