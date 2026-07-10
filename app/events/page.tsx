@@ -38,22 +38,18 @@ const events: Event[] = [
     attendees: 350,
     prizes: "$35K",
     sponsors: [
-      { name: "Cerebras", logo: "/assets/sponsors/cerebras.png", url: "https://www.cerebras.ai/" },
-      { name: "RunPod", logo: "/assets/sponsors/runpod.svg", url: "https://runpod.io/" },
-      { name: "Windsurf", logo: "/assets/sponsors/windsurf-black-wordmark.svg", url: "https://windsurf.com/" },
-      { name: "Manus", logo: "/assets/sponsors/manus.png", url: "https://manus.im/app" },
-      { name: "Bolt", logo: "/assets/sponsors/bolt.svg", url: "https://bolt.new/" },
-      { name: "Mastra", logo: "/assets/sponsors/mastra.png", url: "https://mastra.ai/" },
-      { name: "Contrary", logo: "/assets/sponsors/contrary.svg", url: "https://contrary.com/" },
-      { name: "Cartwheel", logo: "/assets/sponsors/cartwheel.svg", url: "https://getcartwheel.com/" },
-      { name: "Sameday", logo: "/assets/sponsors/sameday.png", url: "https://www.gosameday.com/" },
-      { name: "Remi", logo: "/assets/sponsors/remi.png", url: "https://www.remihq.com/" },
-      { name: "Stratus", logo: "/assets/sponsors/stratus.png", url: "https://www.usestratus.com/" },
-      { name: "Buster", logo: "/assets/sponsors/buster.png", url: "https://www.buster.so/" },
-      { name: "Castari", logo: "/assets/sponsors/castari.svg", url: "https://castari.com/" },
-      { name: "Mindsmith", logo: "/assets/sponsors/mindsmith.svg", url: "https://mindsmith.ai/" },
+      { name: "JobNimbus", logo: "/assets/sponsors/jobnimbus.png", url: "https://www.jobnimbus.com/" },
+      { name: "Go Utah", logo: "/assets/sponsors/goed.png", url: "https://business.utah.gov/" },
+      { name: "Nucleus", logo: "/assets/sponsors/nucleus.png", url: "https://www.thenucleus.institute/" },
+      { name: "MadeThis", logo: "/assets/sponsors/madethis.svg", url: "https://madethis.com/" },
+      { name: "Leland", logo: "/assets/sponsors/leland.png", url: "https://www.joinleland.com/" },
+      { name: "Cheers", logo: "/assets/sponsors/cheers.svg", url: "https://cheers.tech/" },
       { name: "Surge", logo: "/assets/sponsors/surge.svg", url: "https://surge.app/" },
-      { name: "Redo", logo: "/assets/sponsors/redo.png", url: "https://www.getredo.com/en" }
+      { name: "Salesforce", logo: "/assets/sponsors/salesforce.png", url: "https://www.salesforce.com/" },
+      { name: "Redo", logo: "/assets/sponsors/redo.png", url: "https://www.getredo.com/en" },
+      { name: "Cursor", logo: "/assets/sponsors/cursor.svg", url: "https://cursor.com/" },
+      { name: "Capy", logo: "/assets/sponsors/capy.svg", url: "https://capy.ai/" },
+      { name: "Daytona", logo: "/assets/sponsors/daytona.png", url: "https://www.daytona.io/" }
     ]
   },
   {
@@ -205,7 +201,7 @@ function SponsorLogos({ sponsors }: { sponsors: Event['sponsors'] }) {
   return (
     <>
       {sponsors.map((sponsor, idx) => {
-        const isLargerLogo = ['Windsurf', 'Mastra', 'Buster', 'Remi', 'Castari', 'Mindsmith', 'Surge'].includes(sponsor.name);
+        const isLargerLogo = ['Windsurf', 'Mastra', 'Buster', 'Remi', 'Castari', 'Mindsmith', 'Surge', 'JobNimbus', 'Salesforce', 'MadeThis', 'Cursor', 'Daytona', 'Leland', 'Go Utah', 'Nucleus', 'Cheers'].includes(sponsor.name);
         return (
           <a key={idx} href={sponsor.url} target="_blank" rel="noopener noreferrer">
             <Image
