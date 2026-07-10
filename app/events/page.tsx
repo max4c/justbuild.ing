@@ -8,7 +8,7 @@ interface Event {
   attendees: number;
   prizes: string;
   sponsors: Array<{ name: string; logo: string; url: string }>;
-  winners: Array<{ 
+  winners?: Array<{
     position?: string;
     name: string;
     nameLink?: string;
@@ -31,6 +31,19 @@ const parsePrizeToNumber = (value: string): number => {
 };
 
 const events: Event[] = [
+  {
+    title: "AI Builder Day",
+    goal: "Two days to learn, build, and launch — Utah's biggest AI builder event.",
+    date: "May 8 – 9 2026",
+    attendees: 350,
+    prizes: "$35K",
+    sponsors: [
+      { name: "Cerebras", logo: "/assets/sponsors/cerebras.png", url: "https://www.cerebras.ai/" },
+      { name: "RunPod", logo: "/assets/sponsors/runpod.svg", url: "https://runpod.io/" },
+      { name: "Windsurf", logo: "/assets/sponsors/windsurf-black-wordmark.svg", url: "https://windsurf.com/" },
+      { name: "Contrary", logo: "/assets/sponsors/contrary.svg", url: "https://contrary.com/" }
+    ]
+  },
   {
     title: "AI Agents Hackathon",
     goal: "Build agentic systems or products that enable autonomous work.",
@@ -248,6 +261,7 @@ export default function EventsPage() {
                 </div>
                 
                 {/* Winners Section */}
+                {event.winners && event.winners.length > 0 && (
                 <div className="border-t pt-4 mt-4">
                   <h4 className="font-bold text-gray-900 mb-3">Winners:</h4>
                   <ul className="space-y-2">
@@ -277,6 +291,7 @@ export default function EventsPage() {
                     ))}
                   </ul>
                 </div>
+                )}
               </div>
             ))}
           </div>
