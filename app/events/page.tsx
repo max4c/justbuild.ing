@@ -40,7 +40,7 @@ const events: Event[] = [
     sponsors: [
       { name: "JobNimbus", logo: "/assets/sponsors/jobnimbus.png", url: "https://www.jobnimbus.com/" },
       { name: "Go Utah", logo: "/assets/sponsors/goed.png", url: "https://business.utah.gov/" },
-      { name: "Nucleus", logo: "/assets/sponsors/nucleus.png", url: "https://www.thenucleus.institute/" },
+      { name: "Nucleus", logo: "/assets/sponsors/nucleus.png", url: "https://www.nucleusutah.org/" },
       { name: "MadeThis", logo: "/assets/sponsors/madethis.svg", url: "https://madethis.com/" },
       { name: "Leland", logo: "/assets/sponsors/leland.png", url: "https://www.joinleland.com/" },
       { name: "Cheers", logo: "/assets/sponsors/cheers.svg", url: "https://cheers.tech/" },
@@ -197,11 +197,26 @@ const events: Event[] = [
   }
 ];
 
-function SponsorLogos({ sponsors }: { sponsors: Event['sponsors'] }) {
+function SponsorLogos({ sponsors, boxed = false }: { sponsors: Event['sponsors']; boxed?: boolean }) {
   return (
     <>
       {sponsors.map((sponsor, idx) => {
-        const isLargerLogo = ['Windsurf', 'Mastra', 'Buster', 'Remi', 'Castari', 'Mindsmith', 'Surge', 'JobNimbus', 'Salesforce', 'MadeThis', 'Cursor', 'Daytona', 'Leland', 'Go Utah', 'Nucleus', 'Cheers'].includes(sponsor.name);
+        // Uniform box for large rosters so wide wordmarks and compact icons balance.
+        if (boxed) {
+          return (
+            <a key={idx} href={sponsor.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-8 w-[120px]">
+              <Image
+                src={sponsor.logo}
+                alt={sponsor.name}
+                width={120}
+                height={32}
+                loading="lazy"
+                className="max-h-8 max-w-[120px] w-auto h-auto object-contain grayscale-[0.3] hover:grayscale-0 transition-all"
+              />
+            </a>
+          );
+        }
+        const isLargerLogo = ['Windsurf', 'Mastra', 'Buster', 'Remi', 'Castari', 'Mindsmith', 'Surge'].includes(sponsor.name);
         return (
           <a key={idx} href={sponsor.url} target="_blank" rel="noopener noreferrer">
             <Image
@@ -284,8 +299,8 @@ export default function EventsPage() {
                 {manySponsors && (
                 <div className="border-t pt-4 mt-4">
                   <h4 className="font-bold text-gray-900 mb-3">Sponsors:</h4>
-                  <div className="flex items-center gap-x-6 gap-y-4 flex-wrap">
-                    <SponsorLogos sponsors={event.sponsors} />
+                  <div className="flex items-center gap-x-4 gap-y-5 flex-wrap">
+                    <SponsorLogos sponsors={event.sponsors} boxed />
                   </div>
                 </div>
                 )}
