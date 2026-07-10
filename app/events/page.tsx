@@ -33,7 +33,7 @@ const parsePrizeToNumber = (value: string): number => {
 const events: Event[] = [
   {
     title: "AI Builder Day",
-    goal: "Two days to learn, build, and launch — Utah's biggest AI builder event.",
+    goal: "Utah's biggest AI builder event. Two days to learn, build, and launch.",
     date: "May 8 – 9 2026",
     attendees: 350,
     prizes: "$35K",
@@ -41,7 +41,19 @@ const events: Event[] = [
       { name: "Cerebras", logo: "/assets/sponsors/cerebras.png", url: "https://www.cerebras.ai/" },
       { name: "RunPod", logo: "/assets/sponsors/runpod.svg", url: "https://runpod.io/" },
       { name: "Windsurf", logo: "/assets/sponsors/windsurf-black-wordmark.svg", url: "https://windsurf.com/" },
-      { name: "Contrary", logo: "/assets/sponsors/contrary.svg", url: "https://contrary.com/" }
+      { name: "Manus", logo: "/assets/sponsors/manus.png", url: "https://manus.im/app" },
+      { name: "Bolt", logo: "/assets/sponsors/bolt.svg", url: "https://bolt.new/" },
+      { name: "Mastra", logo: "/assets/sponsors/mastra.png", url: "https://mastra.ai/" },
+      { name: "Contrary", logo: "/assets/sponsors/contrary.svg", url: "https://contrary.com/" },
+      { name: "Cartwheel", logo: "/assets/sponsors/cartwheel.svg", url: "https://getcartwheel.com/" },
+      { name: "Sameday", logo: "/assets/sponsors/sameday.png", url: "https://www.gosameday.com/" },
+      { name: "Remi", logo: "/assets/sponsors/remi.png", url: "https://www.remihq.com/" },
+      { name: "Stratus", logo: "/assets/sponsors/stratus.png", url: "https://www.usestratus.com/" },
+      { name: "Buster", logo: "/assets/sponsors/buster.png", url: "https://www.buster.so/" },
+      { name: "Castari", logo: "/assets/sponsors/castari.svg", url: "https://castari.com/" },
+      { name: "Mindsmith", logo: "/assets/sponsors/mindsmith.svg", url: "https://mindsmith.ai/" },
+      { name: "Surge", logo: "/assets/sponsors/surge.svg", url: "https://surge.app/" },
+      { name: "Redo", logo: "/assets/sponsors/redo.png", url: "https://www.getredo.com/en" }
     ]
   },
   {
@@ -221,7 +233,7 @@ export default function EventsPage() {
                     
                     {/* Mobile: Stack sponsors and stats */}
                     <div className="flex flex-col sm:flex-row gap-4 lg:flex-row lg:items-center">
-                      <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+                      <div className="flex items-center gap-2 sm:gap-3 flex-wrap lg:max-w-[26rem] lg:justify-end">
                         {event.sponsors.map((sponsor, idx) => {
                           const isLargerLogo = ['Windsurf', 'Mastra', 'Buster', 'Remi', 'Castari', 'Mindsmith', 'Surge'].includes(sponsor.name);
                           return (
