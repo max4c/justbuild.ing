@@ -201,6 +201,28 @@ const events: Event[] = [
   }
 ];
 
+function SponsorLogos({ sponsors }: { sponsors: Event['sponsors'] }) {
+  return (
+    <>
+      {sponsors.map((sponsor, idx) => {
+        const isLargerLogo = ['Windsurf', 'Mastra', 'Buster', 'Remi', 'Castari', 'Mindsmith', 'Surge'].includes(sponsor.name);
+        return (
+          <a key={idx} href={sponsor.url} target="_blank" rel="noopener noreferrer">
+            <Image
+              src={sponsor.logo}
+              alt={sponsor.name}
+              width={isLargerLogo ? 70 : 50}
+              height={isLargerLogo ? 30 : 22}
+              loading="lazy"
+              className={`${isLargerLogo ? 'h-[30px]' : 'h-[22px]'} w-auto object-contain grayscale-[0.3] hover:grayscale-0 transition-all`}
+            />
+          </a>
+        );
+      })}
+    </>
+  );
+}
+
 const totalBuilders = events.reduce((sum, event) => sum + event.attendees, 0);
 const totalPrizeMoney = events.reduce((sum, event) => sum + parsePrizeToNumber(event.prizes), 0);
 const formattedTotalPrizeMoney = new Intl.NumberFormat('en-US', {
@@ -220,7 +242,9 @@ export default function EventsPage() {
           </h1>
           
           <div className="space-y-6">
-            {events.map((event, index) => (
+            {events.map((event, index) => {
+              const manySponsors = event.sponsors.length > 5;
+              return (
               <div key={index} className="bg-white rounded-lg p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow">
                 {/* Event Header */}
                 <div className="mb-4">
@@ -230,27 +254,15 @@ export default function EventsPage() {
                       <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1">{event.title}</h3>
                       <p className="text-sm text-gray-600 italic leading-relaxed">{event.goal}</p>
                     </div>
-                    
+
                     {/* Mobile: Stack sponsors and stats */}
                     <div className="flex flex-col sm:flex-row gap-4 lg:flex-row lg:items-center">
-                      <div className="flex items-center gap-2 sm:gap-3 flex-wrap lg:max-w-[26rem] lg:justify-end">
-                        {event.sponsors.map((sponsor, idx) => {
-                          const isLargerLogo = ['Windsurf', 'Mastra', 'Buster', 'Remi', 'Castari', 'Mindsmith', 'Surge'].includes(sponsor.name);
-                          return (
-                            <a key={idx} href={sponsor.url} target="_blank" rel="noopener noreferrer">
-                              <Image 
-                                src={sponsor.logo} 
-                                alt={sponsor.name}
-                                width={isLargerLogo ? 70 : 50}
-                                height={isLargerLogo ? 30 : 22}
-                                loading="lazy"
-                                className={`${isLargerLogo ? 'h-[30px]' : 'h-[22px]'} w-auto object-contain grayscale-[0.3] hover:grayscale-0 transition-all`}
-                              />
-                            </a>
-                          );
-                        })}
-                      </div>
-                      
+                      {!manySponsors && (
+                        <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+                          <SponsorLogos sponsors={event.sponsors} />
+                        </div>
+                      )}
+
                       <div className="bg-tertiary px-3 py-2 rounded-lg">
                         <div className="flex items-center text-xs">
                           <div className="text-center flex-1">
@@ -271,7 +283,17 @@ export default function EventsPage() {
                     </div>
                   </div>
                 </div>
-                
+
+                {/* Sponsors Section (flagship events with a large roster) */}
+                {manySponsors && (
+                <div className="border-t pt-4 mt-4">
+                  <h4 className="font-bold text-gray-900 mb-3">Sponsors:</h4>
+                  <div className="flex items-center gap-x-6 gap-y-4 flex-wrap">
+                    <SponsorLogos sponsors={event.sponsors} />
+                  </div>
+                </div>
+                )}
+
                 {/* Winners Section */}
                 {event.winners && event.winners.length > 0 && (
                 <div className="border-t pt-4 mt-4">
@@ -305,7 +327,8 @@ export default function EventsPage() {
                 </div>
                 )}
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
